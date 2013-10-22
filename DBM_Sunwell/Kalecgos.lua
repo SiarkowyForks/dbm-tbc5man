@@ -44,6 +44,7 @@ end)
 local healthFrame
 local dragonHP = 100
 local demonHP = 100
+local KALECGOS_HP = 2800000
 
 Kal:AddOption("ShowHPFrame", true, DBM_KAL_OPTION_FRAME, function()
 	Kal.Options.ShowHPFrame = not Kal.Options.ShowHPFrame 
@@ -285,23 +286,23 @@ function Kal:OnSync(msg, sender)
 		end
 	elseif msg:sub(0, 2) == "HP" and healthFrame then
 		msg = msg:sub(3)
---		self:AddMsg(msg, sender)
 		if msg:sub(0, 6) == "Dragon" then
-			msg = msg:sub(7)
-			local hp = tonumber(msg) or 100
-			if hp <= healthFrame.bar1:GetValue() then
-				dragonHP = hp
-				healthFrame.bar1:SetValue(hp)
-				getglobal(healthFrame.bar1:GetObject():GetName().."RightText"):SetText(tostring(hp).."%")
-				healthFrame.bar1:GetObject():SetStatusBarColor(1 - (hp/100), hp/100, 0)
+			local hp = tonumber(msg:sub(7)) or 0
+			local perc = floor(hp/KALECGOS_HP*100)
+			dragonHP = hp
+			if hp > 0 and perc < healthFrame.bar1:GetValue() then
+				healthFrame.bar1:SetValue(perc)
+				getglobal(healthFrame.bar1:GetObject():GetName().."RightText"):SetText(tostring(perc).."%")
+				healthFrame.bar1:GetObject():SetStatusBarColor(1 - (perc/100), perc/100, 0)
 			end
 		elseif msg:sub(0, 5) == "Demon" then
-			msg = msg:sub(6)
-			local hp = tonumber(msg) or 100
-			if hp <= healthFrame.bar2:GetValue() then
-				healthFrame.bar2:SetValue(hp)
-				getglobal(healthFrame.bar2:GetObject():GetName().."RightText"):SetText(tostring(hp).."%")
-				healthFrame.bar2:GetObject():SetStatusBarColor(1 - (hp/100), hp/100, 0)
+			local hp = tonumber(msg:sub(6)) or 0
+			local perc = floor(hp/KALECGOS_HP*100)
+			demonHP = hp
+			if hp > 0 and perc < healthFrame.bar2:GetValue() then
+				healthFrame.bar2:SetValue(perc)
+				getglobal(healthFrame.bar2:GetObject():GetName().."RightText"):SetText(tostring(perc).."%")
+				healthFrame.bar2:GetObject():SetStatusBarColor(1 - (perc/100), perc/100, 0)
 			end
 		end
 	end
