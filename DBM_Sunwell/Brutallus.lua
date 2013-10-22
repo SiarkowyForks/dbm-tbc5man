@@ -1,7 +1,7 @@
 local Brutallus = DBM:NewBossMod("Brutallus", DBM_BRUTALLUS_NAME, DBM_BRUTALLUS_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 2)
 
-Brutallus.Version		= "1.0"
-Brutallus.Author		= "Tandanu"
+Brutallus.Version		= "1.1"
+Brutallus.Author		= "Tandanu, Siarkowy"
 Brutallus.MinRevision	= 954
 
 Brutallus:RegisterCombat("YELL", DBM_BRUTALLUS_YELL_PULL)
@@ -41,7 +41,13 @@ function Brutallus:OnCombatStart(delay)
 	self:ScheduleAnnounce(300 - delay, DBM_GENERIC_ENRAGE_WARN:format(1, DBM_MIN), 2)
 	self:ScheduleAnnounce(330 - delay, DBM_GENERIC_ENRAGE_WARN:format(30, DBM_SEC), 3)
 	self:ScheduleAnnounce(350 - delay, DBM_GENERIC_ENRAGE_WARN:format(10, DBM_SEC), 4)
-	self:StartStatusBarTimer(31 - delay, "Next Stomp", 45185)
+
+	self:ScheduleAnnounce(26 - delay, "Stomp in 4 sec", 2)
+	self:ScheduleAnnounce(27 - delay, "Stomp in 3 sec", 3)
+	self:ScheduleAnnounce(28 - delay, "Stomp in 2 sec", 3)
+	self:ScheduleAnnounce(29 - delay, "Stomp in 1 sec", 4)
+
+	self:StartStatusBarTimer(30 - delay, "Next Stomp", 45185)
 end
 
 function Brutallus:OnEvent(event, args)
@@ -109,9 +115,13 @@ function Brutallus:OnSync(msg)
 			self:Announce(DBM_BRUTALLUS_WARN_STOMP:format(msg), 1)
 		end
 		if self.Options.PreWarnStomp then
-			self:ScheduleAnnounce(26, DBM_BRUTALLUS_WARN_STOMP_SOON, 1)
+			self:ScheduleAnnounce(25, DBM_BRUTALLUS_WARN_STOMP_SOON, 2)
+			self:ScheduleAnnounce(26, "Stomp in 4 sec", 2)
+			self:ScheduleAnnounce(27, "Stomp in 3 sec", 3)
+			self:ScheduleAnnounce(28, "Stomp in 2 sec", 3)
+			self:ScheduleAnnounce(29, "Stomp in 1 sec", 4)
 		end
-		self:StartStatusBarTimer(31, "Next Stomp", 45185)
+		self:StartStatusBarTimer(30, "Next Stomp", 45185)
 	
 	elseif msg == "Meteor" then
 		if self.Options.WarnMeteor then
