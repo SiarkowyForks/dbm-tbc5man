@@ -1,7 +1,7 @@
 local Kal = DBM:NewBossMod("Kal", DBM_KAL_NAME, DBM_KAL_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 1)
 
 Kal.Version		= "1.0"
-Kal.Author		= "Tandanu"
+Kal.Author		= "Tandanu, Siarkowy"
 Kal.MinRevision = 988
 
 Kal:RegisterCombat("YELL", DBM_KAL_YELL_PULL, nil, nil, DBM_KAL_KILL_NAME)
