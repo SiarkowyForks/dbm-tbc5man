@@ -8,7 +8,8 @@ Brutallus:RegisterCombat("YELL", DBM_BRUTALLUS_YELL_PULL)
 
 Brutallus:RegisterEvents(
 	"SPELL_AURA_APPLIED",
-	"SPELL_CAST_START"
+	"SPELL_CAST_START",
+	"SPELL_DAMAGE"
 )
 
 Brutallus:AddOption("WarnBurn", true, DBM_BRUTALLUS_OPTION_BURN)
@@ -20,6 +21,7 @@ Brutallus:AddOption("PreWarnStomp", false, DBM_BRUTALLUS_OPTION_PRESTOMP)
 Brutallus:AddOption("WarnMeteor", false, DBM_BRUTALLUS_OPTION_METEOR)
 Brutallus:AddOption("DelayedBurnTimer", false, DBM_BRUTALLUS_OPTION_DEL_BURN)
 Brutallus:AddOption("DelayedBurnWarn", false, DBM_BRUTALLUS_OPTION_DEL_BURN2)
+Brutallus:AddOption("WarnMeteorOnBurn", false, "Warn when Meteor hits Burn target")
 
 Brutallus:AddBarOption("Enrage")
 Brutallus:AddBarOption("Burn: (.*)")
@@ -60,6 +62,14 @@ function Brutallus:OnEvent(event, args)
 	elseif event == "SPELL_CAST_START" then
 		if args.spellId == 45150 then
 			self:SendSync("Meteor")
+		end
+	elseif event == "SPELL_DAMAGE" then
+		if args.spellId == 45150 and self.Options.WarnMeteorOnBurn then
+			for i = 1, GetNumRaidMembers() do
+				if UnitIsUnit("raid"..i, args.destName) and DBM.GetDebuff("raid"..i, GetSpellInfo(46394)) then
+					self:Announce(format("Meteor hits burned %s", args.destName), 4)
+				end
+			end
 		end
 	end
 end
