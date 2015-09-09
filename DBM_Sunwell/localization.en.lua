@@ -62,11 +62,11 @@ DBM_KAL_FRAME_HIDE				= "Hide frame"
 
 DBM_KAL_HEALTHFRAME_TITLE		= "Dragon/Demon HP"
 
-DBM_KAL_STATUS_MSG				= "Dragon: %d%%%% Demon: %d%%%%"
+DBM_KAL_STATUS_MSG				= "Dragon: %d%% Demon: %d%%"
 
--- Brutallus 
-DBM_BRUTALLUS_NAME				= "Brutallus" 
-DBM_BRUTALLUS_DESCRIPTION		= "Announces and shows timers for Burn and Enrage." 
+-- Brutallus
+DBM_BRUTALLUS_NAME				= "Brutallus"
+DBM_BRUTALLUS_DESCRIPTION		= "Announces and shows timers for Burn and Enrage."
 
 DBM_BRUTALLUS_YELL_PULL			= "Ah, more lambs to the slaughter!"
 
