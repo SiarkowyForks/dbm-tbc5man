@@ -1,8 +1,8 @@
 local Muru = DBM:NewBossMod("Muru", DBM_MURU_NAME, DBM_MURU_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 5)
 
 Muru.Version	= "0.9"
-Muru.Author		= "Tandanu"
-Muru.MinRevision = 1011
+Muru.Author		= "Tandanu, Siarkowy"
+Muru.MinRevision = 1012
 
 Muru:RegisterCombat("COMBAT", nil, nil, nil, DBM_MURU_ENTROPIUS)
 
@@ -52,6 +52,7 @@ function Muru:OnCombatStart(delay)
 	self:StartStatusBarTimer(36.5 - delay, "Void Sentinel", "Interface\\Icons\\Spell_Shadow_SummonVoidWalker")
 	
 	self:StartStatusBarTimer(45 - delay, "Next Darkness", 45996)
+	self:ScheduleMethod(45 - delay, "DarknessWorkaround")
 	self:ScheduleAnnounce(40 - delay, DBM_MURU_DARKNESS_SOON, 3)
 end
 
@@ -98,6 +99,7 @@ function Muru:OnSync(msg)
 		self:Announce(DBM_MURU_WARN_P2, 1)
 		self:UnScheduleMethod("HumanoidSpawn")
 		self:UnScheduleMethod("VoidSpawn")
+		self:UnScheduleMethod("DarknessWorkaround")
 		self:EndStatusBarTimer("Humanoids")
 		self:EndStatusBarTimer("Void Sentinel")
 		self:UnScheduleAnnounce(DBM_MURU_WARN_HUMANOIDS_SOON, 1)
@@ -125,6 +127,13 @@ function Muru:VoidSpawn()
 	end
 	self:ScheduleMethod(30, "VoidSpawn")
 	self:StartStatusBarTimer(30, "Void Sentinel", "Interface\\Icons\\Spell_Shadow_SummonVoidWalker")
+end
+
+function Muru:DarknessWorkaround()
+	self:SendSync("Darkness")
+	p2 = false
+
+	self:ScheduleMethod(45, "DarknessWorkaround")
 end
 
 function Muru:OnUpdate(elapsed)
