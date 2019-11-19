@@ -1,8 +1,8 @@
 local Kil = DBM:NewBossMod("Kil", DBM_KIL_NAME, DBM_KIL_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 6)
 
 Kil.Version	= "0.92"
-Kil.Author	= "Tandanu"
-Kil.MinRevision = 1043
+Kil.Author	= "Tandanu, Siarkowy"
+Kil.MinRevision = 1044
 
 Kil:RegisterCombat("YELL", DBM_KIL_YELL_PULL)
 

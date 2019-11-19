@@ -193,7 +193,7 @@ DBM_KIL_OPTION_DRAGONORB		= "Announce Dragon Orbs"
 
 DBM_KIL_YELL_PULL				= "The expendable have perished. So be it! Now I shall succeed where Sargeras could not! I will bleed this wretched world and secure my place as the true master of the Burning Legion! The end has come! Let the unravelling of this world commence!"
 DBM_KIL_YELL_PHASE2_1			= "The enemy is among you!" -- this actually announces Sinister Reflections and not phase 2
-DBM_KIL_YELL_PHASE2_2			= "Who can you trust!"
+DBM_KIL_YELL_PHASE2_2			= "Who can you trust?" -- wrong localization workaround
 
 DBM_KIL_WARN_PHASE1				= "Phase 2"
 DBM_KIL_WARN_PHASE2				= "Phase 3"
