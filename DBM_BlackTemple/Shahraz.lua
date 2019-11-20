@@ -20,12 +20,12 @@ Shahraz:RegisterEvents(
 )
 
 function Shahraz:OnCombatStart(delay)
-	self:StartStatusBarTimer(600 - delay, "Enrage", "Interface\\Icons\\Spell_Shadow_UnholyFrenzy")
-	self:ScheduleSelf(300 - delay, "EnrageWarn", 300)
-	self:ScheduleSelf(480 - delay, "EnrageWarn", 120)
-	self:ScheduleSelf(540 - delay, "EnrageWarn", 60)
-	self:ScheduleSelf(570 - delay, "EnrageWarn", 30)
-	self:ScheduleSelf(590 - delay, "EnrageWarn", 10)
+	self:StartStatusBarTimer(480 - delay, "Enrage", "Interface\\Icons\\Spell_Shadow_UnholyFrenzy")
+	self:ScheduleSelf(240 - delay, "EnrageWarn", 240)
+	self:ScheduleSelf(360 - delay, "EnrageWarn", 120)
+	self:ScheduleSelf(420 - delay, "EnrageWarn", 60)
+	self:ScheduleSelf(450 - delay, "EnrageWarn", 30)
+	self:ScheduleSelf(470 - delay, "EnrageWarn", 10)
 	
 	fa = {}
 	icon = 8
