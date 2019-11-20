@@ -23,9 +23,9 @@ Archimonde:AddBarOption("Fear")
 function Archimonde:OnCombatStart(delay)
 	self:StartStatusBarTimer(420 - delay, "Enrage", "Interface\\Icons\\Spell_Shadow_UnholyFrenzy");
 	self:ScheduleSelf(210 - delay, "EnrageWarn", 210);
-	self:ScheduleSelf(310 - delay, "EnrageWarn", 100);
-	self:ScheduleSelf(370 - delay, "EnrageWarn", 60);
-	self:ScheduleSelf(400 - delay, "EnrageWarn", 30);
+	self:ScheduleSelf(320 - delay, "EnrageWarn", 100);
+	self:ScheduleSelf(360 - delay, "EnrageWarn", 60);
+	self:ScheduleSelf(390 - delay, "EnrageWarn", 30);
 	self:ScheduleSelf(410 - delay, "EnrageWarn", 10);
 	
 	self:StartStatusBarTimer(40 - delay, "Fear", "Interface\\Icons\\Spell_Shadow_PsychicScream")
