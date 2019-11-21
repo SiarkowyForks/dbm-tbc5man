@@ -1,7 +1,7 @@
 local Supremus = DBM:NewBossMod("Supremus", DBM_SUPREMUS_NAME, DBM_SUPREMUS_DESCRIPTION, DBM_BLACK_TEMPLE, DBM_BT_TAB, 2);
 
-Supremus.Version	= "1.0";
-Supremus.Author		= "Tandanu";
+Supremus.Version	= "1.1";
+Supremus.Author		= "Tandanu, Siarkowy";
 Supremus.MinRevision = 828
 
 local lastIcon		= nil;
@@ -33,6 +33,7 @@ function Supremus:OnCombatStart(delay)
 	
 	self:StartStatusBarTimer(60 - delay, "Kite Phase", "Interface\\Icons\\Spell_Fire_BurningSpeed");
 	self:ScheduleSelf(50 - delay, "PhaseWarn", 2);
+	self:ScheduleMethod(60 - delay, "SendSync", "KitePhase")
 	lastIcon = nil;
 	phase2 = nil
 end
@@ -44,28 +45,32 @@ function Supremus:OnCombatEnd()
 	end
 end
 
-function Supremus:OnEvent(event, arg1)
-	if event == "CHAT_MSG_RAID_BOSS_EMOTE" and arg1 then
-		if arg1:find(DBM_SUPREMUS_EMOTE_PHASE1) then
-			self:StartStatusBarTimer(60, "Tank & Spank Phase", "Interface\\Icons\\Ability_Defend");
+function Supremus:OnSync(arg1)
+	if arg1 then
+		if arg1 == "TankPhase" then
+			self:StartStatusBarTimer(60, "Kite Phase", "Interface\\Icons\\Spell_Fire_BurningSpeed");
 
 			self:ScheduleSelf(50, "PhaseWarn", 2);
+			self:ScheduleMethod(60, "SendSync", "KitePhase")
 			self:Announce(DBM_SUPREMUS_WARN_PHASE_1, 3);
 			if lastIcon then
 				DBM.ClearIconByName(lastIcon);
 				lastIcon = nil;
 			end
 			phase2 = nil
-		elseif arg1 == DBM_SUPREMUS_EMOTE_PHASE2 then
-			self:StartStatusBarTimer(60, "Kite Phase", "Interface\\Icons\\Spell_Fire_BurningSpeed");
+		elseif arg1 == "KitePhase" then
+			self:StartStatusBarTimer(60, "Tank & Spank Phase", "Interface\\Icons\\Ability_Defend");
 			self:ScheduleSelf(50, "PhaseWarn", 1);
+			self:ScheduleMethod(60, "SendSync", "TankPhase")
 			self:Announce(DBM_SUPREMUS_WARN_PHASE_2, 3);
 			self:ScheduleMethod(4, "NewTarget") -- he waits a few seconds before changing the target since patch 2.2
 			phase2 = true
-		elseif phase2 and arg1:find(DBM_SUPREMUS_EMOTE_NEWTARGET) then -- he sometimes uses this emote just after switching in phase 2 since 2.2
-			self:ScheduleMethod(0.5, "NewTarget")
 		end		
-	elseif event == "PhaseWarn" and arg1 then
+	end
+end
+
+function Supremus:OnEvent(event, arg1)
+	if event == "PhaseWarn" and arg1 then
 		self:Announce(getglobal("DBM_SUPREMUS_WARN_PHASE_"..tostring(arg1).."_SOON"), 1);
 	elseif event == "SPELL_AURA_APPLIED" then
 		if arg1.spellId == 42052 and arg1.destName == UnitName("player") then
