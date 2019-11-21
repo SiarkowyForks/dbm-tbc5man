@@ -7,12 +7,14 @@ Fork of Deadly Boss Mod v3.22 modified for compatibility with
 
 ## Changelog
 
-- Sunwell/Brutallus: Stomp timer is now corrected and ticks every second
-  to aid the healer.
+- Magtheridon's Lair: Fixed encounter not starting.
+- Black Temple/Mother Shahraz: Corrected Enrage timers.
+- Hyjal Summit/Archimonde: Corrected Enrage timers.
+- Zul'Aman/Akil'zon: Corrected Storm timer.
+- Sunwell/Brutallus: Corrected Stomp timer, it ticks every second to aid healer.
 - Sunwell/Brutallus: Warn when Meteor Slash hits Burned targets (togglable).
 - Sunwell/M'uru: Fixed first Darkness not being reported.
 - Sunwell/Kil'jaeden: Fixed transition to phase 2.
-- Magtheridon's Lair: Fixed encounter not starting.
 
 ## Installation
 
