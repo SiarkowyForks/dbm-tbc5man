@@ -47,5 +47,5 @@ in the respective issue to let others know. Thank you!
 You are invited to improve this addon by opening
 [pull requests](https://github.com/Siarkowy/DBM-5man/pulls). Make sure to
 fork this repository, commit your change to a fresh topic branch in your
-fork and finally target the PR at `master` branch. Pull requests will be
+fork and finally target the PR at `develop` branch. Pull requests will be
 reviewed as soon as possible. Make sure you add yourself to mod credits.
