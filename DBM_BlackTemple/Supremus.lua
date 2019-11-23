@@ -1,6 +1,6 @@
 local Supremus = DBM:NewBossMod("Supremus", DBM_SUPREMUS_NAME, DBM_SUPREMUS_DESCRIPTION, DBM_BLACK_TEMPLE, DBM_BT_TAB, 2);
 
-Supremus.Version	= "1.1";
+Supremus.Version	= "1.2";
 Supremus.Author		= "Tandanu, Siarkowy";
 Supremus.MinRevision = 828
 
@@ -48,6 +48,7 @@ end
 function Supremus:OnSync(arg1)
 	if arg1 then
 		if arg1 == "TankPhase" then
+			self:UnScheduleMethod("NewTarget")
 			self:StartStatusBarTimer(60, "Kite Phase", "Interface\\Icons\\Spell_Fire_BurningSpeed");
 
 			self:ScheduleSelf(50, "PhaseWarn", 2);
@@ -63,7 +64,7 @@ function Supremus:OnSync(arg1)
 			self:ScheduleSelf(50, "PhaseWarn", 1);
 			self:ScheduleMethod(60, "SendSync", "TankPhase")
 			self:Announce(DBM_SUPREMUS_WARN_PHASE_2, 3);
-			self:ScheduleMethod(4, "NewTarget") -- he waits a few seconds before changing the target since patch 2.2
+			self:ScheduleMethod(1, "NewTarget")
 			phase2 = true
 		end		
 	end
@@ -99,4 +100,6 @@ function Supremus:NewTarget()
 			self:SendHiddenWhisper(DBM_SUPREMUS_WHISPER_RUN_AWAY, target);
 		end
 	end
+
+	self:ScheduleMethod(10, "NewTarget")
 end
