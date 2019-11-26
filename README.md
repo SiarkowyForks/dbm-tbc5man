@@ -8,6 +8,7 @@ Fork of Deadly Boss Mod v3.22 modified for compatibility with
 ## Changelog
 
 - Magtheridon's Lair: Fixed encounter not starting.
+- Black Temple/Supremus: Fixed phase tracking & focused gaze timers.
 - Black Temple/Mother Shahraz: Corrected Enrage timers.
 - Hyjal Summit/Archimonde: Corrected Enrage timers.
 - Zul'Aman/Akil'zon: Corrected Storm timer.
