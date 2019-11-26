@@ -2,7 +2,7 @@ local Supremus = DBM:NewBossMod("Supremus", DBM_SUPREMUS_NAME, DBM_SUPREMUS_DESC
 
 Supremus.Version	= "1.2";
 Supremus.Author		= "Tandanu, Siarkowy";
-Supremus.MinRevision = 828
+Supremus.MinRevision = 1080
 
 local lastIcon		= nil;
 local phase2		= nil
