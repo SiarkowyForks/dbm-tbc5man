@@ -1,8 +1,8 @@
 local Brutallus = DBM:NewBossMod("Brutallus", DBM_BRUTALLUS_NAME, DBM_BRUTALLUS_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 2)
 
-Brutallus.Version		= "1.1"
+Brutallus.Version		= "1.2"
 Brutallus.Author		= "Tandanu, Siarkowy"
-Brutallus.MinRevision	= 954
+Brutallus.MinRevision	= 1081
 
 Brutallus:RegisterCombat("YELL", DBM_BRUTALLUS_YELL_PULL)
 

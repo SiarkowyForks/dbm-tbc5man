@@ -326,7 +326,7 @@ DBM = {}
 DBM.Version = "3.22" -- used for "a new version of dbm is available"-spam
 DBMGUI_VERSION = "3.02"
 
-DBM_REVISION = tonumber(("$Revision: 297 $"):sub(12, -3) or 0) + 783 -- 783 = revision number from the old SVN repository
+DBM_REVISION = 1081
 DBM_VERSION = "3.22" -- this version is used for /dbm ver commands
 DBM.BetaVersion = DBM_VERSION.." (rev "..DBM_REVISION..")" -- this will be shown in the GUI if set
 

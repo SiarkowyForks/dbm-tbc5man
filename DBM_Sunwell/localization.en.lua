@@ -68,7 +68,7 @@ DBM_KAL_STATUS_MSG				= "Dragon: %d%% Demon: %d%%"
 DBM_BRUTALLUS_NAME				= "Brutallus"
 DBM_BRUTALLUS_DESCRIPTION		= "Announces and shows timers for Burn and Enrage."
 
-DBM_BRUTALLUS_YELL_PULL			= "Ah, more lambs to the slaughter!"
+DBM_BRUTALLUS_YELL_PULL			= "Ahh! More lambs to the slaughter!"
 
 DBM_BRUTALLUS_OPTION_BURN		= "Announce Burn"
 DBM_BRUTALLUS_OPTION_BURN2		= "Announce jumped Burn debuffs"
