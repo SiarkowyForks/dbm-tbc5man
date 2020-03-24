@@ -1,7 +1,8 @@
 local Council = DBM:NewBossMod("Council", DBM_COUNCIL_NAME, DBM_COUNCIL_DESCRIPTION, DBM_BLACK_TEMPLE, DBM_BT_TAB, 8)
 
-Council.Version		= "1.0"
-Council.Author		= "Tandanu"
+Council.Version		= "1.1"
+Council.Author		= "Tandanu, Siarkowy"
+Council.MinRevision = 1082
 
 Council:RegisterCombat("YELL", {DBM_COUNCIL_YELL_PULL1, DBM_COUNCIL_YELL_PULL2, DBM_COUNCIL_YELL_PULL3, DBM_COUNCIL_YELL_PULL4}, DBM_COUNCIL_MOB_GATHIOS, DBM_COUNCIL_NAME, DBM_COUNCIL_MOB_GATHIOS)
 
@@ -37,13 +38,13 @@ Council:RegisterEvents(
 )
 
 function Council:OnCombatStart(delay)
-	self:StartStatusBarTimer(900 - delay, "Enrage", "Interface\\Icons\\Spell_Shadow_UnholyFrenzy")	
-	self:ScheduleAnnounce(300 - delay, DBM_GENERIC_ENRAGE_WARN:format(10, DBM_MIN), 1)
-	self:ScheduleAnnounce(600 - delay, DBM_GENERIC_ENRAGE_WARN:format(5, DBM_MIN), 1)
-	self:ScheduleAnnounce(720 - delay, DBM_GENERIC_ENRAGE_WARN:format(3, DBM_MIN), 1)
-	self:ScheduleAnnounce(840 - delay, DBM_GENERIC_ENRAGE_WARN:format(1, DBM_MIN), 2)
-	self:ScheduleAnnounce(870 - delay, DBM_GENERIC_ENRAGE_WARN:format(30, DBM_SEC), 3)
-	self:ScheduleAnnounce(890 - delay, DBM_GENERIC_ENRAGE_WARN:format(10, DBM_SEC), 4)
+	self:StartStatusBarTimer(900 - 180 - delay, "Enrage", "Interface\\Icons\\Spell_Shadow_UnholyFrenzy")	
+	self:ScheduleAnnounce(300 - 180 - delay, DBM_GENERIC_ENRAGE_WARN:format(10, DBM_MIN), 1)
+	self:ScheduleAnnounce(600 - 180 - delay, DBM_GENERIC_ENRAGE_WARN:format(5, DBM_MIN), 1)
+	self:ScheduleAnnounce(720 - 180 - delay, DBM_GENERIC_ENRAGE_WARN:format(3, DBM_MIN), 1)
+	self:ScheduleAnnounce(840 - 180 - delay, DBM_GENERIC_ENRAGE_WARN:format(1, DBM_MIN), 2)
+	self:ScheduleAnnounce(870 - 180 - delay, DBM_GENERIC_ENRAGE_WARN:format(30, DBM_SEC), 3)
+	self:ScheduleAnnounce(890 - 180 - delay, DBM_GENERIC_ENRAGE_WARN:format(10, DBM_SEC), 4)
 end
 
 function Council:OnEvent(event, args)
