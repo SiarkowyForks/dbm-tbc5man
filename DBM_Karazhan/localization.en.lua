@@ -136,6 +136,9 @@ DBM_NS_OPTION_2			= "Show 5 second warning for phases";
 DBM_NS_OPTION_3			= "Announce Void Zones";
 DBM_NS_OPTION_4			= "Announce Netherbreath";
 
+DBM_NS_OPTION_DEBUFF_RED	= "Warn on 15+ stacks of Red beam debuff";
+DBM_NS_OPTION_DEBUFF_BLUE	= "Warn on 15+ stacks of Blue beam debuff";
+
 DBM_NS_EMOTE_PHASE_2	= "%s goes into a nether-fed rage!";
 DBM_NS_EMOTE_PHASE_1	= "%s cries out in withdrawal, opening gates to the nether.";
 
@@ -146,6 +149,9 @@ DBM_NS_WARN_BANISH_SOON	= "*** Banish phase in 5 sec ***";
 DBM_NS_WARN_BREATH		= "*** Netherbreath ***";
 DBM_NS_WARN_VOID_ZONE	= "*** Void Zone ***";
 DBM_NS_WARN_ENRAGE		= "*** Enrage in %s %s ***";
+
+DBM_NS_SPECWARN_DEBUFF_RED	= "Perseverance: %d";
+DBM_NS_SPECWARN_DEBUFF_BLUE	= "Dominance: %d";
 
 --Prince Malchezaar
 DBM_PRINCE_NAME			= "Prince Malchezaar"

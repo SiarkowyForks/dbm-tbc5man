@@ -1,13 +1,14 @@
 local Netherspite = DBM:NewBossMod("Netherspite", DBM_NS_NAME, DBM_NS_DESCRIPTION, DBM_KARAZHAN, DBM_KARAZHAN_TAB, 11);
 
 Netherspite.Version			= "1.1";
-Netherspite.Author			= "Tandanu";
+Netherspite.Author			= "Tandanu, Siarkowy";
 Netherspite.Phase			= 1;
 
 
 Netherspite:RegisterEvents(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
+	"SPELL_AURA_APPLIED_DOSE",
 	"CHAT_MSG_RAID_BOSS_EMOTE"
 );
 
@@ -17,6 +18,8 @@ Netherspite:AddOption("PhaseWarn", true, DBM_NS_OPTION_1);
 Netherspite:AddOption("PhasePreWarn", true, DBM_NS_OPTION_2);
 Netherspite:AddOption("VoidWarn", true, DBM_NS_OPTION_3);
 Netherspite:AddOption("BreathWarn", true, DBM_NS_OPTION_4);
+Netherspite:AddOption("DebuffRed", true, DBM_NS_OPTION_DEBUFF_RED);
+Netherspite:AddOption("DebuffBlue", true, DBM_NS_OPTION_DEBUFF_BLUE);
 
 Netherspite:AddBarOption("Enrage")
 Netherspite:AddBarOption("Banish Phase")
@@ -53,6 +56,12 @@ function Netherspite:OnEvent(event, arg1)
 			if self.Options.VoidWarn then
 				self:Announce(DBM_NS_WARN_VOID_ZONE, 1);
 			end
+		end
+	elseif event == "SPELL_AURA_APPLIED_DOSE" then
+		if self.Options.DebuffRed and arg1.spellId == 30421 and arg1.destName == UnitName("player") and arg1.amount >= 15 then
+			self:AddSpecialWarning(DBM_NS_SPECWARN_DEBUFF_RED:format(arg1.amount));
+		elseif self.Options.DebuffBlue and arg1.spellId == 30423 and arg1.destName == UnitName("player") and arg1.amount >= 15 then
+			self:AddSpecialWarning(DBM_NS_SPECWARN_DEBUFF_BLUE:format(arg1.amount));
 		end
 	elseif event == "CHAT_MSG_RAID_BOSS_EMOTE" then
 		if arg1 == DBM_NS_EMOTE_PHASE_2 then
