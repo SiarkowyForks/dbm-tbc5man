@@ -1,12 +1,13 @@
 local Shahraz = DBM:NewBossMod("Shahraz", DBM_SHAHRAZ_NAME, DBM_SHAHRAZ_DESCRIPTION, DBM_BLACK_TEMPLE, DBM_BT_TAB, 7)
 
-Shahraz.Version	= "1.1"
-Shahraz.Author	= "Tandanu, Yatzii"
+Shahraz.Version	= "1.2"
+Shahraz.Author	= "Tandanu, Yatzii, Ace"
 
 Shahraz:RegisterCombat("YELL", DBM_SHAHRAZ_YELL_PULL)
 
 Shahraz:AddOption("WarnBeam", false, DBM_SHAHRAZ_OPTION_BEAM)
 Shahraz:AddOption("WarnBeamSoon", false, DBM_SHAHRAZ_OPTION_BEAM_SOON)
+Shahraz:AddOption("PortedIcons", true, DBM_SHAHRAZ_OPTION_PORTED_ICONS)
 
 Shahraz:AddBarOption("Enrage")
 Shahraz:AddBarOption("Next Beam", false)
@@ -74,8 +75,10 @@ function Shahraz:OnSync(msg)
 		table.insert(fa, msg)
 		if self.Options.Announce and DBM.Rank >= 1 then
 			self:SendHiddenWhisper(DBM_SHAHRAZ_WHISPER_FA, msg)
-			self:SetIcon(msg, 7.5, icon)
-			icon = icon - 1
+			if self.Options.PortedIcons then
+				self:SetIcon(msg, 7.5, icon)
+				icon = icon - 1
+			end
 		end
 		if msg == UnitName("player") then
 			self:AddSpecialWarning(DBM_SHAHRAZ_SPECWARN_FA)

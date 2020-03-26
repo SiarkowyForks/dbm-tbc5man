@@ -133,6 +133,7 @@ DBM_SHAHRAZ_NAME					= "Mother Shahraz"
 DBM_SHAHRAZ_DESCRIPTION				= "Announces Fatal Attraction, sets an icons and sends whispers. Announces and shows a timer for Beams."
 DBM_SHAHRAZ_OPTION_BEAM				= "Announce Beams"
 DBM_SHAHRAZ_OPTION_BEAM_SOON		= "Show \"Beam soon\" warning"
+DBM_SHAHRAZ_OPTION_PORTED_ICONS 	= "Mark ported targets with icons"
 
 DBM_SHAHRAZ_YELL_PULL				= "So... business or pleasure?"
 
