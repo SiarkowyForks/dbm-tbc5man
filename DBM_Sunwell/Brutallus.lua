@@ -18,10 +18,11 @@ Brutallus:AddOption("BurnIcon", false, DBM_BRUTALLUS_OPTION_BURN3)
 Brutallus:AddOption("BurnSpecWarn", true, DBM_BRUTALLUS_OPTION_BURN4)
 Brutallus:AddOption("WarnStomp", true, DBM_BRUTALLUS_OPTION_STOMP)
 Brutallus:AddOption("PreWarnStomp", false, DBM_BRUTALLUS_OPTION_PRESTOMP)
+Brutallus:AddOption("GranularWarnStomp", false, DBM_BRUTALLUS_OPTION_TIMERSTOMP)
 Brutallus:AddOption("WarnMeteor", false, DBM_BRUTALLUS_OPTION_METEOR)
 Brutallus:AddOption("DelayedBurnTimer", false, DBM_BRUTALLUS_OPTION_DEL_BURN)
 Brutallus:AddOption("DelayedBurnWarn", false, DBM_BRUTALLUS_OPTION_DEL_BURN2)
-Brutallus:AddOption("WarnMeteorOnBurn", false, "Warn when Meteor hits Burn target")
+Brutallus:AddOption("WarnMeteorOnBurn", false, DBM_BRUTALLUS_OPTION_METEOR_ON_BURN)
 
 Brutallus:AddBarOption("Enrage")
 Brutallus:AddBarOption("Burn: (.*)")
@@ -44,10 +45,12 @@ function Brutallus:OnCombatStart(delay)
 	self:ScheduleAnnounce(330 - delay, DBM_GENERIC_ENRAGE_WARN:format(30, DBM_SEC), 3)
 	self:ScheduleAnnounce(350 - delay, DBM_GENERIC_ENRAGE_WARN:format(10, DBM_SEC), 4)
 
-	self:ScheduleAnnounce(26 - delay, "Stomp in 4 sec", 2)
-	self:ScheduleAnnounce(27 - delay, "Stomp in 3 sec", 3)
-	self:ScheduleAnnounce(28 - delay, "Stomp in 2 sec", 3)
-	self:ScheduleAnnounce(29 - delay, "Stomp in 1 sec", 4)
+	if self.Options.GranularWarnStomp then
+		self:ScheduleAnnounce(26 - delay, "Stomp in 4 sec", 2)
+		self:ScheduleAnnounce(27 - delay, "Stomp in 3 sec", 3)
+		self:ScheduleAnnounce(28 - delay, "Stomp in 2 sec", 3)
+		self:ScheduleAnnounce(29 - delay, "Stomp in 1 sec", 4)
+	end
 
 	self:StartStatusBarTimer(30 - delay, "Next Stomp", 45185)
 end
@@ -126,10 +129,12 @@ function Brutallus:OnSync(msg)
 		end
 		if self.Options.PreWarnStomp then
 			self:ScheduleAnnounce(25, DBM_BRUTALLUS_WARN_STOMP_SOON, 2)
-			self:ScheduleAnnounce(26, "Stomp in 4 sec", 2)
-			self:ScheduleAnnounce(27, "Stomp in 3 sec", 3)
-			self:ScheduleAnnounce(28, "Stomp in 2 sec", 3)
-			self:ScheduleAnnounce(29, "Stomp in 1 sec", 4)
+			if self.Options.GranularWarnStomp then
+				self:ScheduleAnnounce(26, "Stomp in 4 sec", 2)
+				self:ScheduleAnnounce(27, "Stomp in 3 sec", 3)
+				self:ScheduleAnnounce(28, "Stomp in 2 sec", 3)
+				self:ScheduleAnnounce(29, "Stomp in 1 sec", 4)
+			end
 		end
 		self:StartStatusBarTimer(30, "Next Stomp", 45185)
 	
