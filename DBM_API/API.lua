@@ -869,6 +869,7 @@ function DBM.OnLoad()
 				n 	= GetAddOnMetadata(i, "X-DBM-Name") or GetAddOnMetadata(i, "X-DBM-Name-enGB"),
 				tn	= GetAddOnMetadata(i, "X-DBM-Tab-Text") or GetAddOnMetadata(i, "X-DBM-Tab-Text-enGB"),
 				tt	= GetAddOnMetadata(i, "X-DBM-Tab-Title") or GetAddOnMetadata(i, "X-DBM-Tab-Title-enGB"),
+				re	= GetAddOnMetadata(i, "X-DBM-Tab-LoadRealm") or GetAddOnMetadata(i, "X-DBM-Tab-LoadRealm-enGB"),
 				z	= GetAddOnMetadata(i, "X-DBM-Tab-LoadZone") or GetAddOnMetadata(i, "X-DBM-Tab-LoadZone-enGB"),
 				i	= i,
 			})
@@ -1641,7 +1642,8 @@ function DBM.OnNewZone()
 
 	for index, value in ipairs(DBM.BossModInfo) do
 		if ((GetRealZoneText() == value.z)
-		or (type(value.z) == "table" and value.z[GetRealZoneText()]))
+		or (type(value.z) == "table" and value.z[GetRealZoneText()])
+		or GetRealmName() == value.re)
 		and not IsAddOnLoaded(value.i) then
 			local loaded, reason = LoadAddOn(value.i);
 			if not loaded then

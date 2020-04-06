@@ -1,0 +1,17 @@
+﻿## Interface: 20400
+## Title: |cff0055FFTBC 5 Man Deadly Boss Mods|r
+## Notes: Deadly Boss Mods for TBC 5 Man Server
+## Author: Siarkowy
+## LoadOnDemand: 1
+## RequiredDeps: DBM_API
+## X-DBM-AddOn: 1
+## X-DBM-Tab-ID: TBC5ManTab
+## X-DBM-Tab-BCTab: 1
+## X-DBM-Tab-Sort: 10
+## X-DBM-Name: TBC 5 Man
+## X-DBM-Tab-Text: TBC 5 Man
+## X-DBM-Tab-Title: TBC 5 Man Realm Boss Mods
+## X-DBM-Tab-LoadRealm: TBC 5 Man
+
+localization.en.lua
+WorldBuff.lua
