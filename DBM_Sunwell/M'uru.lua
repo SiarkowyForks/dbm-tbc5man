@@ -1,6 +1,6 @@
 local Muru = DBM:NewBossMod("Muru", DBM_MURU_NAME, DBM_MURU_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 5)
 
-Muru.Version	= "0.91"
+Muru.Version	= "0.92"
 Muru.Author		= "Tandanu, Siarkowy"
 Muru.MinRevision = 1011
 
@@ -15,6 +15,7 @@ Muru:AddOption("WarnDarknessSoon", true, DBM_MURU_OPTION_DARKNESS_SOON)
 Muru:AddOption("WarnBlackHole", true, DBM_MURU_OPTION_HOLE_WARN)
 Muru:AddOption("PreWarnBlackHole", true, DBM_MURU_OPTION_HOLE_SOON_WARN)
 Muru:AddOption("WarnFiend", true, DBM_MURU_OPTION_WARN_FIEND)
+Muru:AddOption("WarnVoidZone", true, DBM_MURU_OPTION_VOID_ZONE_WARN)
 
 Muru:AddBarOption("Enrage")
 Muru:AddBarOption("Humanoids")
@@ -26,6 +27,7 @@ local p2 = false
 
 Muru:RegisterEvents(
 	"SPELL_AURA_APPLIED",
+	"SPELL_DAMAGE",
 	"SPELL_SUMMON"
 )
 
@@ -63,6 +65,10 @@ function Muru:OnEvent(event, args)
 				self:SendSync("Darkness")
 				p2 = false
 			end
+		end
+	elseif event == "SPELL_DAMAGE" then
+		if args.spellId == 46264 then
+			self:SendSync("VoidZone" .. tostring(args.destName))
 		end
 	elseif event == "SPELL_SUMMON" then
 		if args.spellId == 46268 then
@@ -104,6 +110,11 @@ function Muru:OnSync(msg)
 		self:EndStatusBarTimer("Void Sentinel")
 		self:UnScheduleAnnounce(DBM_MURU_WARN_HUMANOIDS_SOON, 1)
 		self:UnScheduleAnnounce(DBM_MURU_WARN_VOID_SOON, 1)
+	elseif msg:sub(0, 8) == "VoidZone" then
+		msg = msg:sub(9)
+		if msg == UnitName("player") and self.Options.WarnVoidZone then
+			self:AddSpecialWarning(DBM_MURU_WARN_VOID_ZONE)
+		end
 	end
 end
 
