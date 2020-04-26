@@ -2,6 +2,7 @@ local Shahraz = DBM:NewBossMod("Shahraz", DBM_SHAHRAZ_NAME, DBM_SHAHRAZ_DESCRIPT
 
 Shahraz.Version	= "1.2"
 Shahraz.Author	= "Tandanu, Yatzii, Ace"
+Shahraz.MinRevision	= 1080
 
 Shahraz:RegisterCombat("YELL", DBM_SHAHRAZ_YELL_PULL)
 

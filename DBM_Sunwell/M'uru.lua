@@ -2,7 +2,7 @@ local Muru = DBM:NewBossMod("Muru", DBM_MURU_NAME, DBM_MURU_DESCRIPTION, DBM_SUN
 
 Muru.Version	= "0.92"
 Muru.Author		= "Tandanu, Siarkowy"
-Muru.MinRevision = 1011
+Muru.MinRevision	= 1080
 
 Muru:RegisterCombat("COMBAT", nil, nil, nil, DBM_MURU_ENTROPIUS)
 

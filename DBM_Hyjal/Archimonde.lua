@@ -2,7 +2,7 @@ local Archimonde = DBM:NewBossMod("Archimonde", DBM_ARCHIMONDE_NAME, DBM_ARCHIMO
 
 Archimonde.Version	= "1.1";
 Archimonde.Author	= "Tandanu, Yatzii";
-
+Archimonde.MinRevision = 1080;
 
 Archimonde:RegisterCombat("YELL", DBM_ARCHIMONDE_YELL_PULL);
 

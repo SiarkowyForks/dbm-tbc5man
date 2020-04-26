@@ -2,6 +2,7 @@ local Akilzon = DBM:NewBossMod("Akilzon", DBM_AKIL_NAME, DBM_AKIL_DESCRIPTION, D
 
 Akilzon.Version		= "1.1";
 Akilzon.Author		= "Tandanu, Yatzii";
+Akilzon.MinRevision	= 1080;
 
 Akilzon:RegisterEvents(
 	"SPELL_AURA_APPLIED"
