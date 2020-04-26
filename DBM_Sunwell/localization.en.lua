@@ -182,6 +182,7 @@ DBM_MURU_WARN_P2				= "Phase 2"
 -- Kil'jaeden
 DBM_KIL_NAME					= "Kil'jaeden"
 DBM_KIL_DESCRIPTION				= "Announces Orbs, Darkness, Shield, Reflections and Fire Bloom"
+DBM_KIL_HAND_OF_DECEIVER_NAME	= "Hand of the Deceiver"
 
 DBM_KIL_OPTION_RANGE			= "Show range check"
 DBM_KIL_OPTION_SHIELD			= "Announce Shield of the Blue"
@@ -196,11 +197,12 @@ DBM_KIL_OPTION_DARTS			= "Announce Flame Darts"
 DBM_KIL_OPTION_DRAGONORB		= "Announce Dragon Orbs"
 
 DBM_KIL_YELL_PULL				= "The expendable have perished. So be it! Now I shall succeed where Sargeras could not! I will bleed this wretched world and secure my place as the true master of the Burning Legion! The end has come! Let the unravelling of this world commence!"
-DBM_KIL_YELL_PHASE2_1			= "The enemy is among you!" -- this actually announces Sinister Reflections and not phase 2
-DBM_KIL_YELL_PHASE2_2			= "Who can you trust?" -- wrong localization workaround
+DBM_KIL_YELL_PHASE2_1			= "The enemy is among you."
+DBM_KIL_YELL_PHASE2_2			= "Who can you trust?"
 
-DBM_KIL_WARN_PHASE1				= "Phase 2"
-DBM_KIL_WARN_PHASE2				= "Phase 3"
+DBM_KIL_WARN_PHASE0				= "Phase 1 - Hands of the Deceiver"
+DBM_KIL_WARN_PHASE1				= "Phase 2 - Emerge"
+DBM_KIL_WARN_PHASE2				= "Phase 3 - Dragon Orbs"
 DBM_KIL_WARN_PHASE3				= "Phase 4 - Meteors"
 DBM_KIL_WARN_PHASE4				= "Phase 5 - Enrage"
 DBM_KIL_WARN_SHIELD				= "Shield of the Blue"

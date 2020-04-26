@@ -1,10 +1,10 @@
 local Kil = DBM:NewBossMod("Kil", DBM_KIL_NAME, DBM_KIL_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 6)
 
-Kil.Version	= "0.93"
+Kil.Version	= "0.94"
 Kil.Author	= "Tandanu, Siarkowy"
-Kil.MinRevision = 1043
+Kil.MinRevision = 1083
 
-Kil:RegisterCombat("YELL", DBM_KIL_YELL_PULL)
+Kil:RegisterCombat("COMBAT", 5, DBM_KIL_HAND_OF_DECEIVER_NAME, DBM_KIL_NAME, DBM_KIL_NAME)
 
 Kil:AddOption("RangeCheck", true, DBM_KIL_OPTION_RANGE)
 Kil:AddOption("WarnShield", true, DBM_KIL_OPTION_SHIELD)
@@ -28,6 +28,7 @@ Kil:AddOption("WarnDarts", true, DBM_KIL_OPTION_DARTS)
 Kil:AddOption("WarnDragonOrb", true, DBM_KIL_OPTION_DRAGONORB)
 
 Kil:RegisterEvents(
+	"UNIT_DIED",
 	"SPELL_CAST_SUCCESS",
 	"CHAT_MSG_MONSTER_YELL",
 	"SPELL_CAST_START",
@@ -40,19 +41,21 @@ local orbGUIDs = {}
 local lastOrb = 0
 local fire = {}
 local phase = 2
+local deceivers = 3
 
 function Kil:OnCombatStart()
 	orbGUIDs = {}
 	lastOrb = 0
 	fire = {}
 	phase = 2
+	deceivers = 3
 	if self.Options.RangeCheck then
 		DBM_Gui_DistanceFrame_Show()
 	end
 	if self.Options.ShowFrame then
 		self:CreateFrame()
 	end
-	self:Announce(DBM_KIL_WARN_PHASE1, 3)
+	self:Announce(DBM_KIL_WARN_PHASE0, 3)
 end
 
 function Kil:OnCombatEnd()
@@ -96,6 +99,13 @@ function Kil:OnEvent(event, args)
 		elseif args.spellId == 45737 then
 			self:SendSync("Darts")
 		end
+	elseif event == "UNIT_DIED" then
+		if args.destName == DBM_KIL_HAND_OF_DECEIVER_NAME then
+			deceivers = deceivers - 1
+			if deceivers == 0 then
+				self:SendSync("Emerge")
+			end
+		end
 	end
 end
 
@@ -126,12 +136,14 @@ function Kil:OnSync(msg)
 --		if self.Options.WarnShield then
 --			self:Announce(DBM_KIL_WARN_SHIELD:format(msg), 2)
 --		end
+	elseif msg == "Emerge" then
+		self:Announce(DBM_KIL_WARN_PHASE1, 3)
 	elseif msg == "Phase" then
 		phase = phase + 1
 		if phase == 3 then
 			self:Announce(DBM_KIL_WARN_PHASE2, 3)
-			self:StartStatusBarTimer(77, "Next Darkness", 46605)
-			self:ScheduleAnnounce(72, DBM_KIL_WARN_DARKNESS_SOON, 3)
+			self:ScheduleMethod(30, "StartStatusBarTimer", 45, "Next Darkness", 46605)
+			self:ScheduleAnnounce(30+30, DBM_KIL_WARN_DARKNESS_SOON, 3)
 			self:StartStatusBarTimer(59, "Flame Darts", 45740)
 			if self.Options.WarnDarts then
 				self:ScheduleAnnounce(54, DBM_KIL_WARN_DARTS_SOON, 1)
@@ -145,8 +157,8 @@ function Kil:OnSync(msg)
 			self:Announce(DBM_KIL_WARN_PHASE3, 3)
 			self:EndStatusBarTimer("Next Darkness")
 			self:UnScheduleAnnounce(DBM_KIL_WARN_DARKNESS_SOON, 3)
-			self:StartStatusBarTimer(77, "Next Darkness", 46605)
-			self:ScheduleAnnounce(72, DBM_KIL_WARN_DARKNESS_SOON, 3)
+			self:ScheduleMethod(30, "StartStatusBarTimer", 45, "Next Darkness", 46605)
+			self:ScheduleAnnounce(30+30, DBM_KIL_WARN_DARKNESS_SOON, 3)
 			self:StartStatusBarTimer(37, "Dragon Orb", 45109)
 			if self.Options.WarnDragonOrb then
 				self:ScheduleAnnounce(32, DBM_KIL_WARN_DRAGORB_SOON, 2)
@@ -156,8 +168,8 @@ function Kil:OnSync(msg)
 			self:Announce(DBM_KIL_WARN_PHASE4, 3)
 			self:EndStatusBarTimer("Next Darkness")
 			self:UnScheduleAnnounce(DBM_KIL_WARN_DARKNESS_SOON, 3)
-			self:StartStatusBarTimer(58, "Next Darkness", 46605)
-			self:ScheduleAnnounce(53, DBM_KIL_WARN_DARKNESS_SOON, 3)
+			self:ScheduleMethod(30, "StartStatusBarTimer", 25, "Next Darkness", 46605)
+			self:ScheduleAnnounce(30+15, DBM_KIL_WARN_DARKNESS_SOON, 3)
 		end
 	elseif msg == "Darkness" then
 		self:Announce(DBM_KIL_WARN_DARKNESS, 4)
@@ -166,7 +178,7 @@ function Kil:OnSync(msg)
 			self:ScheduleAnnounce(20, DBM_KIL_WARN_DARKNESS_SOON, 3)
 		else
 			self:StartStatusBarTimer(45, "Next Darkness", 46605)
-			self:ScheduleAnnounce(40, DBM_KIL_WARN_DARKNESS_SOON, 3)
+			self:ScheduleAnnounce(30, DBM_KIL_WARN_DARKNESS_SOON, 3)
 		end
 		self:StartStatusBarTimer(8.5, "Darkness", 46605)
 		self:ScheduleAnnounce(8.5, DBM_KIL_WARN_DARKNESS_NOW, 4)
