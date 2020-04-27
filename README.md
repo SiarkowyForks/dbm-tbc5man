@@ -1,6 +1,6 @@
 # DBM 5man
 
-> Newest release available at: https://github.com/SiarkowyForks/DBM-5man
+> Newest release available at: https://github.com/SiarkowyForks/DBM-5man/releases
 
 Fork of Deadly Boss Mod v3.22 modified for compatibility with
 [TBC 5 Man server](https://tbc5man.com/). Works exclusively with patch 2.4.3.
