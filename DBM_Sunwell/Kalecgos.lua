@@ -1,8 +1,8 @@
 local Kal = DBM:NewBossMod("Kal", DBM_KAL_NAME, DBM_KAL_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 1)
 
-Kal.Version		= "1.0"
+Kal.Version		= "1.1"
 Kal.Author		= "Tandanu, Siarkowy"
-Kal.MinRevision = 988
+Kal.MinRevision = 1085
 
 Kal:RegisterCombat("COMBAT", 5, nil, nil, DBM_KAL_KILL_NAME)
 
@@ -44,7 +44,6 @@ end)
 local healthFrame
 local dragonHP = 100
 local demonHP = 100
-local KALECGOS_HP = 2800000
 
 Kal:AddOption("ShowHPFrame", true, DBM_KAL_OPTION_FRAME, function()
 	Kal.Options.ShowHPFrame = not Kal.Options.ShowHPFrame
@@ -119,9 +118,11 @@ function Kal:OnEvent(event, args)
 		end
 	elseif event == "UNIT_HEALTH" and UnitIsEnemy(arg1, "player") then
 		if UnitName(arg1) == DBM_KAL_NAME then
-			self:SendSync("HPDragon"..tostring(UnitHealth(arg1)))
+			local perc = floor(UnitHealth(arg1) / UnitHealthMax(arg1) * 100 + 0.5)
+			self:SendSync("%HPDragon"..tostring(perc))
 		elseif UnitName(arg1) == DBM_KAL_KILL_NAME then
-			self:SendSync("HPDemon"..tostring(UnitHealth(arg1)))
+			local perc = floor(UnitHealth(arg1) / UnitHealthMax(arg1) * 100 + 0.5)
+			self:SendSync("%HPDemon"..tostring(perc))
 		end
 	end
 end
@@ -284,22 +285,20 @@ function Kal:OnSync(msg, sender)
 		if self.Options.WarnStrike then
 			self:Announce(DBM_KAL_WARN_STRIKE:format(msg), 1)
 		end
-	elseif msg:sub(0, 2) == "HP" and healthFrame then
-		msg = msg:sub(3)
+	elseif msg:sub(0, 3) == "%HP" and healthFrame then
+		msg = msg:sub(4)
 		if msg:sub(0, 6) == "Dragon" then
-			local hp = tonumber(msg:sub(7)) or 0
-			local perc = floor(hp/KALECGOS_HP*100)
-			dragonHP = hp
-			if hp > 0 and perc < healthFrame.bar1:GetValue() then
+			local perc = tonumber(msg:sub(7)) or 0
+			dragonHP = perc
+			if perc >= 0 and perc < healthFrame.bar1:GetValue() then
 				healthFrame.bar1:SetValue(perc)
 				getglobal(healthFrame.bar1:GetObject():GetName().."RightText"):SetText(tostring(perc).."%")
 				healthFrame.bar1:GetObject():SetStatusBarColor(1 - (perc/100), perc/100, 0)
 			end
 		elseif msg:sub(0, 5) == "Demon" then
-			local hp = tonumber(msg:sub(6)) or 0
-			local perc = floor(hp/KALECGOS_HP*100)
-			demonHP = hp
-			if hp > 0 and perc < healthFrame.bar2:GetValue() then
+			local perc = tonumber(msg:sub(6)) or 0
+			demonHP = perc
+			if perc >= 0 and perc < healthFrame.bar2:GetValue() then
 				healthFrame.bar2:SetValue(perc)
 				getglobal(healthFrame.bar2:GetObject():GetName().."RightText"):SetText(tostring(perc).."%")
 				healthFrame.bar2:GetObject():SetStatusBarColor(1 - (perc/100), perc/100, 0)
@@ -309,7 +308,7 @@ function Kal:OnSync(msg, sender)
 end
 
 function Kal:GetBossHP()
-	return DBM_KAL_STATUS_MSG:format(dragonHP/KALECGOS_HP*100, demonHP/KALECGOS_HP*100)
+	return DBM_KAL_STATUS_MSG:format(dragonHP, demonHP)
 end
 
 function Kal:CreateHealthFrame()
