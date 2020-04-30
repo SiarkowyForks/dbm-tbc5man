@@ -1,0 +1,34 @@
+﻿## Interface: 20400
+## Title: |cff0055FFDeadly Naxx Boss Mods|r
+## Title-zhCN: |cff0055FFDeadly|r 纳克萨玛斯 |cff0055FF模组|r
+## Title-ruRU: |cff0055FFDeadly Накс Boss Mods|r
+## Notes: Boss Mods for Naxxramas
+## Notes-zhCN: Deadly Boss Mod 的纳克萨玛斯模组
+## Notes-ruRU: Наксрамас Boss Mods
+## Author: Tandanu and Nitram
+## LoadOnDemand: 1
+## RequiredDeps: DBM_API
+localization.en.lua
+localization.de.lua
+localization.fr.lua
+localization.cn.lua
+localization.tw.lua
+localization.ru.lua
+Spider\AnubRekhan.lua
+Spider\GrandWidowFaerlina.lua
+Spider\Maexxna.lua
+Ghoul\Noth.lua
+Ghoul\Heigan.lua
+Ghoul\Loatheb.xml
+Ghoul\Loatheb.lua
+Deathknight\Razuvious.lua
+Deathknight\Gothik.lua
+Deathknight\FourHorsemen.lua
+Abomination\Patchwerk.lua
+Abomination\Grobbulus.lua
+Abomination\Gluth.lua
+Abomination\Thaddius.lua
+Frostwyrm\Sapphiron.lua
+Frostwyrm\Kelthuzad.lua
+Bosses.lua
+Load.lua
