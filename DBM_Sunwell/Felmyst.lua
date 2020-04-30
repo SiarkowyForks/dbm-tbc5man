@@ -1,7 +1,8 @@
 local Felmyst = DBM:NewBossMod("Felmyst", DBM_FELMYST_NAME, DBM_FELMYST_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 3)
 
-Felmyst.Version		= "0.3"
-Felmyst.Author		= "Tandanu"
+Felmyst.Version		= "0.4"
+Felmyst.Author		= "Tandanu, Siarkowy"
+Felmyst.MinRevision	= 1089
 
 Felmyst:RegisterCombat("COMBAT")
 
@@ -30,7 +31,7 @@ Felmyst:AddBarOption("Next Gas Nova")
 Felmyst:AddBarOption("Gas Nova")
 
 function Felmyst:OnCombatStart(delay)
-	pull = GetTime()
+	pull = GetTime() - delay
 	airPhase = false
 	lastTarget = nil
 	breathCounter = 0
@@ -91,14 +92,14 @@ function Felmyst:OnSync(msg)
 		self:EndStatusBarTimer("Next Gas Nova")
 		self:UnScheduleAnnounce(DBM_FELMYST_WARN_GAS_SOON, 1)
 		
-		self:ScheduleAnnounce(89, DBM_FELMYST_LAND_SOON, 1)
-		self:StartStatusBarTimer(99, "Ground Phase", "Interface\\AddOns\\DBM_API\\Textures\\CryptFiendBurrow")
-		self:ScheduleMethod(99, "SendSync", "Ground")
+		self:ScheduleAnnounce(64, DBM_FELMYST_LAND_SOON, 1)
+		self:StartStatusBarTimer(74, "Ground Phase", "Interface\\AddOns\\DBM_API\\Textures\\CryptFiendBurrow")
+		self:ScheduleMethod(74, "SendSync", "Ground")
 		
 		if self.Options.BreathSoonWarn then
-			self:ScheduleAnnounce(34, DBM_FELMYST_BREATH_SOON_FMT:format(1), 1)
+			self:ScheduleAnnounce(28, DBM_FELMYST_BREATH_SOON_FMT:format(1), 1)
 		end
-		self:StartStatusBarTimer(44, "Next Deep Breath", 37986)
+		self:StartStatusBarTimer(38, "Next Deep Breath", 37986)
 	elseif msg == "Ground" then
 		airPhase = false
 		pull = GetTime()
@@ -114,12 +115,15 @@ function Felmyst:OnSync(msg)
 		self:Announce(DBM_FELMYST_BREATH_NOW_FMT:format(breathCounter), 4)
 		if breathCounter < 3 then
 			if self.Options.BreathSoonWarn then
-				self:ScheduleAnnounce(14, DBM_FELMYST_BREATH_SOON5_FMT:format(breathCounter + 1), 1)
+				self:ScheduleAnnounce(8, DBM_FELMYST_BREATH_SOON5_FMT:format(breathCounter + 1), 1)
 			end
-			self:StartStatusBarTimer(19, "Next Deep Breath", 37986)
+			self:StartStatusBarTimer(13, "Next Deep Breath", 37986)
 		end
 		self:StartStatusBarTimer(4, "Deep Breath", 37986)
 	elseif msg:sub(0, 5) == "Vapor" then
+		if not airPhase then
+			self:SendSync("Air")
+		end
 		msg = msg:sub(6)
 		if self.Options.VaporWarn then
 			self:Announce(DBM_FELMYST_WARN_VAPOR:format(msg), 2)
@@ -129,10 +133,7 @@ end
 
 
 function Felmyst:OnUpdate(elapsed)
-	if not self.InCombat or GetTime() - pull < 10 then return end
-	local foundBoss
-	local hasTarget
-	local target
+	if not self.InCombat then return end
 	for i = 1, GetNumRaidMembers() do
 		local j = 1
 		while true do
@@ -144,17 +145,5 @@ function Felmyst:OnUpdate(elapsed)
 				self:SendSync("Encaps"..UnitName("raid"..i))
 			end
 		end
-		if not foundBoss and UnitName("raid"..i.."target") == DBM_FELMYST_NAME then
-			foundBoss = true
-			hasTarget = UnitExists("raid"..i.."targettarget") -- note: UnitName() might still return a valid name ("Demonic Vapor" or "Unknown")
-			target = UnitName("raid"..i.."targettarget")
-		end
-	end
-	
-	if foundBoss and not hasTarget and not airPhase then
-		self:SendSync("Air")
---	elseif foundBoss and airPhase and hasTarget and GetTime() - airPhase < 98 and target ~= lastTarget then --> useless
---		lastTarget = target
---		self:AddMsg(target, "Felmyst's target")
 	end
 end
