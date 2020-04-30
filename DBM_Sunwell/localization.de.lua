@@ -89,7 +89,7 @@ DBM_BRUTALLUS_WARN_BURN			= "Brand: >%s<"
 DBM_BRUTALLUS_WHISP_BURN		= "Brand auf dir!"
 DBM_BRUTALLUS_WARN_STOMP		= "Stampfen: >%s<"
 DBM_BRUTALLUS_WARN_METEOR		= "Meteor"
-DBM_BRUTALLUS_WARN_DEL_BURN		= "15 Sek Brand auf >%s<"
+DBM_BRUTALLUS_WARN_DEL_BURN		= "5 Sek Brand auf >%s<"
 DBM_BRUTALLUS_WARN_STOMP_SOON	= "Stampfen in 5 Sek"
 
 DBM_SBT["Next Burn"]	= "Nächster Brand";

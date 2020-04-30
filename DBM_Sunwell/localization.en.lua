@@ -87,7 +87,7 @@ DBM_BRUTALLUS_WARN_BURN			= "Burn: >%s<"
 DBM_BRUTALLUS_WHISP_BURN		= "Burn on you!"
 DBM_BRUTALLUS_WARN_STOMP		= "Stomp: >%s<"
 DBM_BRUTALLUS_WARN_METEOR		= "Meteor"
-DBM_BRUTALLUS_WARN_DEL_BURN		= "15 sec Burn on >%s<"
+DBM_BRUTALLUS_WARN_DEL_BURN		= "5 sec Burn on >%s<"
 DBM_BRUTALLUS_WARN_STOMP_SOON	= "Stomp in 5 sec"
 
 

@@ -107,7 +107,7 @@ DBM_SUNWELL						= "太阳之井高地"
 	DBM_BRUTALLUS_WHISP_BURN		= "你正在燃烧！"
 	DBM_BRUTALLUS_WARN_STOMP		= "践踏 -> >%s<"
 	DBM_BRUTALLUS_WARN_METEOR		= "流星猛击"
-	DBM_BRUTALLUS_WARN_DEL_BURN		= ">%s<的燃烧还有15秒"
+	DBM_BRUTALLUS_WARN_DEL_BURN		= ">%s<的燃烧还有5秒"
 	DBM_BRUTALLUS_WARN_STOMP_SOON	= "践踏 - 5秒后施放"
 
 	DBM_SBT["Enrage"]		= "激怒";

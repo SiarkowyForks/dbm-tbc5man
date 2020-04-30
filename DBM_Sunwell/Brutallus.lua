@@ -1,8 +1,8 @@
 local Brutallus = DBM:NewBossMod("Brutallus", DBM_BRUTALLUS_NAME, DBM_BRUTALLUS_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 2)
 
-Brutallus.Version		= "1.2"
+Brutallus.Version		= "1.3"
 Brutallus.Author		= "Tandanu, Siarkowy"
-Brutallus.MinRevision	= 1081
+Brutallus.MinRevision	= 1086
 
 Brutallus:RegisterCombat("YELL", DBM_BRUTALLUS_YELL_PULL)
 
@@ -27,7 +27,7 @@ Brutallus:AddOption("WarnMeteorOnBurn", false, DBM_BRUTALLUS_OPTION_METEOR_ON_BU
 Brutallus:AddBarOption("Enrage")
 Brutallus:AddBarOption("Burn: (.*)")
 Brutallus:AddBarOption("Jumped Burn: (.*)", false)
-Brutallus:AddBarOption("Next Burn")
+Brutallus:AddBarOption("Next Burn", false)
 Brutallus:AddBarOption("Next Meteor")
 Brutallus:AddBarOption("Next Stomp")
 
@@ -98,16 +98,15 @@ function Brutallus:OnSync(msg)
 			self:SendHiddenWhisper(DBM_BRUTALLUS_WHISP_BURN, msg)
 		end
 		
-		self:ScheduleMethod(45, "DelayedBurn", msg)
+		self:ScheduleMethod(15, "DelayedBurn", msg)
 		
 		if firstBurn then
 			if not self.Options.DelayedBurnTimer then
-				self:StartStatusBarTimer(60, "Burn: "..msg, 46394, true)
+				self:StartStatusBarTimer(20, "Burn: "..msg, 46394, true)
 			end
-			self:StartStatusBarTimer(20, "Next Burn", "Interface\\Icons\\Spell_Fire_FelFire")
 		else
 			if not self.Options.DelayedBurnTimer then
-				self:StartStatusBarTimer(60, "Jumped Burn: "..msg, 46394, true)
+				self:StartStatusBarTimer(20, "Jumped Burn: "..msg, 46394, true)
 			end
 		end
 		
@@ -115,8 +114,8 @@ function Brutallus:OnSync(msg)
 			for i = 8, 1, -1 do
 				if icons[i] == nil then
 					icons[i] = true
-					self:SetIcon(msg, 60, i)
-					self:Schedule(60, clearIcon, i)
+					self:SetIcon(msg, 20, i)
+					self:Schedule(20, clearIcon, i)
 					break
 				end
 			end
@@ -159,6 +158,6 @@ function Brutallus:DelayedBurn(target)
 		self:Announce(DBM_BRUTALLUS_WARN_DEL_BURN:format(target), 4)
 	end
 	if self.Options.DelayedBurnTimer then
-		self:StartStatusBarTimer(15, "Burn: "..target, 46394, true)
+		self:StartStatusBarTimer(5, "Burn: "..target, 46394, true)
 	end
 end
