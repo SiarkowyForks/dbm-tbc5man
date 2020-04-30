@@ -1,8 +1,8 @@
 local Illidan = DBM:NewBossMod("Illidan", DBM_ILLIDAN_NAME, DBM_ILLIDAN_DESCRIPTION, DBM_BLACK_TEMPLE, DBM_BT_TAB, 9)
 
-Illidan.Version		= "1.1"
-Illidan.Author		= "Tandanu"
-Illidan.MinRevision = 764
+Illidan.Version		= "1.2"
+Illidan.Author		= "Tandanu, Siarkowy"
+Illidan.MinRevision = 1084
 
 Illidan:RegisterCombat("YELL", DBM_ILLIDAN_YELL_PULL)
 
@@ -58,13 +58,13 @@ function Illidan:OnCombatStart(delay)
 	phase2 = nil
 	phase4 = nil
 	delay = delay - 7 - 33 -- 7 = time until combat starts and 33 because the timer will stop while illidan is switching from phase 1->2, 2->3 and 3->4; according to my combatlogs this should be quite accurate
-	self:StartStatusBarTimer(1500 - delay, "Enrage", "Interface\\Icons\\Spell_Shadow_UnholyFrenzy");	
-	self:ScheduleAnnounce(900 - delay, DBM_GENERIC_ENRAGE_WARN:format(10, DBM_MIN), 1)
-	self:ScheduleAnnounce(1200 - delay, DBM_GENERIC_ENRAGE_WARN:format(5, DBM_MIN), 1)
-	self:ScheduleAnnounce(1320 - delay, DBM_GENERIC_ENRAGE_WARN:format(3, DBM_MIN), 1)
-	self:ScheduleAnnounce(1440 - delay, DBM_GENERIC_ENRAGE_WARN:format(1, DBM_MIN), 2)
-	self:ScheduleAnnounce(1470 - delay, DBM_GENERIC_ENRAGE_WARN:format(30, DBM_SEC), 3)
-	self:ScheduleAnnounce(1490 - delay, DBM_GENERIC_ENRAGE_WARN:format(10, DBM_SEC), 4)
+	self:StartStatusBarTimer(1200 - delay, "Enrage", "Interface\\Icons\\Spell_Shadow_UnholyFrenzy");	
+--	self:ScheduleAnnounce(1200 - 600 - delay, DBM_GENERIC_ENRAGE_WARN:format(10, DBM_MIN), 1)
+	self:ScheduleAnnounce(1200 - 300 - delay, DBM_GENERIC_ENRAGE_WARN:format(5, DBM_MIN), 1)
+	self:ScheduleAnnounce(1200 - 180 - delay, DBM_GENERIC_ENRAGE_WARN:format(3, DBM_MIN), 1)
+	self:ScheduleAnnounce(1200 -  60 - delay, DBM_GENERIC_ENRAGE_WARN:format(1, DBM_MIN), 2)
+	self:ScheduleAnnounce(1200 -  30 - delay, DBM_GENERIC_ENRAGE_WARN:format(30, DBM_SEC), 3)
+	self:ScheduleAnnounce(1200 -  10 - delay, DBM_GENERIC_ENRAGE_WARN:format(10, DBM_SEC), 4)
 end
 
 function Illidan:OnCombatEnd()
