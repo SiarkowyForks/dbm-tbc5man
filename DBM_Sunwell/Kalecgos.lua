@@ -4,7 +4,7 @@ Kal.Version		= "1.0"
 Kal.Author		= "Tandanu, Siarkowy"
 Kal.MinRevision = 988
 
-Kal:RegisterCombat("YELL", DBM_KAL_YELL_PULL, nil, nil, DBM_KAL_KILL_NAME)
+Kal:RegisterCombat("COMBAT", 5, nil, nil, DBM_KAL_KILL_NAME)
 
 Kal:RegisterEvents(
 	"SPELL_CAST_START",
