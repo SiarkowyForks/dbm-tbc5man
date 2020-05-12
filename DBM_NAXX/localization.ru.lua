@@ -410,7 +410,7 @@ DBM_KELTHUZAD_PHASE2_EXPR3		= "The end is upon you!";
 DBM_KELTHUZAD_PHASE2_ANNOUNCE		= "*** Phase 2 - Kel'Thuzad engaged ***";
 
 DBM_KELTHUZAD_PHASE3_EXPR		= "Master, I require aid!";
-DBM_KELTHUZAD_PHASE3_ANNOUNCE		= "*** Phase 3 - Guardians in ~15 sec ***";
+DBM_KELTHUZAD_PHASE3_ANNOUNCE		= "*** Phase 3 ***";
 
 DBM_KELTHUZAD_GUARDIAN_EXPR		= "Отлично. Warriors of the frozen wastes, rise up! I command you to fight, kill and die for your master! Let none survive!";
 DBM_KELTHUZAD_GUARDIAN_ANNOUNCE	= "*** Стражи через ~10 сек ***";

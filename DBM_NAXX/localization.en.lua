@@ -415,38 +415,55 @@ DBM_KELTHUZAD_NAME			= "Kel'Thuzad";
 DBM_KELTHUZAD_INFO			= "Announces phases and abilities of the Kel'Thuzad boss fight.";
 
 DBM_KELTHUZAD_RANGECHECK		= "Show distance frame during phase 2 and 3";
+DBM_KELTHUZAD_OPTION_ANN_REFLECTION	= "Announce Sinister Reflections";
+DBM_KELTHUZAD_OPTION_ANN_GHOUL_SOON	= "Show Exploding Shadow soon warning";
+DBM_KELTHUZAD_OPTION_ANN_FISSURE	= "Announce Shadow Fissures";
+DBM_KELTHUZAD_OPTION_ANN_FROSTBLAST	= "Announce Frost Blasts";
+DBM_KELTHUZAD_OPTION_ANN_DETONATE	= "Announce Detonate Mana";
+DBM_KELTHUZAD_OPTION_WHISP_FISSURE	= "Send whisper to Shadow Fissure target";
+DBM_KELTHUZAD_OPTION_WHISP_DETONATE	= "Send whisper to Detonate Mana target";
+DBM_KELTHUZAD_OPTION_FISSURE	= "Show special warning for Shadow Fissure";
+DBM_KELTHUZAD_OPTION_DETONATE	= "Show special warning for Detonate Mana";
 
-DBM_KELTHUZAD_PHASE1_EXPR		= "Minions, servants, soldiers of the cold dark! Obey the call of Kel'Thuzad!";
-DBM_KELTHUZAD_PHASE1_ANNOUNCE		= "*** Phase 1 ***";
+DBM_KELTHUZAD_PHASE1_EXPR		= "Minions, servants, soldiers of the cold dark, obey the call of Kel'Thuzad!";
+DBM_KELTHUZAD_PHASE1_ANNOUNCE		= "*** Phase 1 - Adds incoming ***";
 
 DBM_KELTHUZAD_PHASE2_EXPR1		= "Pray for mercy!";
 DBM_KELTHUZAD_PHASE2_EXPR2		= "Scream your dying breath!";
 DBM_KELTHUZAD_PHASE2_EXPR3		= "The end is upon you!";
 DBM_KELTHUZAD_PHASE2_ANNOUNCE		= "*** Phase 2 - Kel'Thuzad engaged ***";
+DBM_KELTHUZAD_PHASE2_SOON_ANNOUNCE  = "Phase 2 soon";
 
 DBM_KELTHUZAD_PHASE3_EXPR		= "Master, I require aid!";
-DBM_KELTHUZAD_PHASE3_ANNOUNCE		= "*** Phase 3 - Guardians in ~15 sec ***";
+DBM_KELTHUZAD_PHASE3_EMOTE		= "A Guardian of Icecrown enters the fight!";
+DBM_KELTHUZAD_PHASE3_ANNOUNCE		= "*** Phase 3 - Guardian incoming ***";
 
 DBM_KELTHUZAD_GUARDIAN_EXPR		= "Very well. Warriors of the frozen wastes, rise up! I command you to fight, kill and die for your master! Let none survive!";
 DBM_KELTHUZAD_GUARDIAN_ANNOUNCE	= "*** Guardians in ~10 sec ***";
 
-DBM_KELTHUZAD_MC_EXPR1			= "Your soul is bound to me, now!";
+DBM_KELTHUZAD_MC_EXPR1			= "Your soul, is bound to me now!";
 DBM_KELTHUZAD_MC_EXPR2			= "There will be no escape!";
---DBM_KELTHUZAD_MC_EXPR3		= "%s¿ñÐ¦²»Ö¹";			 --laugh emote
 DBM_KELTHUZAD_MC_ANNOUNCE		= "*** Mind Control ***";
 DBM_KELTHUZAD_MC_CD				= "*** Mind Control cooldown ready ***";
 DBM_KELTHUZAD_MC_SOON			= "*** Mind Control Incoming ***";
 
+DBM_KELTHUZAD_REFLECTION_ANNOUNCE	= "Sinister Reflection";
+DBM_KELTHUZAD_REFLECTION_SOON		= "Sinister Reflection soon";
+
+DBM_KELTHUZAD_GHOUL_EXPR		= "A ghoul has spawned, kill it before it reaches its target!";
+DBM_KELTHUZAD_GHOUL_SOON		= "Exploding Ghoul soon";
+
 DBM_KELTHUZAD_FISSURE_EXPR		= "Kel'Thuzad casts Shadow Fissure.";
-DBM_KELTHUZAD_FISSURE_ANNOUNCE		= "*** Shadow Fissure ***";
+DBM_KELTHUZAD_FISSURE_ANNOUNCE		= "*** Shadow Fissure: >%s< ***";
+DBM_KELTHUZAD_FISSURE_WARN		= "Shadow Fissure below!";
 
 DBM_KELTHUZAD_FROSTBLAST_EXPR		= "^(.+) (.+) afflicted by Frost Blast";
-DBM_KELTHUZAD_FROSTBLAST_ANNOUNCE	= "*** Frost Blast ***";
+DBM_KELTHUZAD_FROSTBLAST_ANNOUNCE	= "*** Frost Blast: >%s< ***";
 DBM_KELTHUZAD_FROSTBLAST_SOON		= "*** Possible Frost Blast Incoming ***";
 DBM_KELTHUZAD_FROSTBLAST_PARTY		= "I'm blasted! HEAL me!";
 
 DBM_KELTHUZAD_DETONATE_EXPR		= "^([^%s]+) ([^%s]+) afflicted by Detonate Mana.";
-DBM_KELTHUZAD_DETONATE_ANNOUNCE	= "*** Detonate Mana - >%s< ***";
+DBM_KELTHUZAD_DETONATE_ANNOUNCE	= "*** Detonate Mana: >%s< ***";
 DBM_KELTHUZAD_DETONATE_SELFWARN	= "You are the Bomb!";
 DBM_KELTHUZAD_DETONATE_WHISPER		= "You are the Bomb!";
 

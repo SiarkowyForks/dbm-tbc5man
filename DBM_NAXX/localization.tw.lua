@@ -380,7 +380,7 @@ DBM_KELTHUZAD_PHASE2_EXPR3		= "The end is upon you!";
 DBM_KELTHUZAD_PHASE2_ANNOUNCE      = "*** 型態 2 - 科爾蘇加德開始憤怒了 ***";
 
 DBM_KELTHUZAD_PHASE3_EXPR      = "Master, I require aid!";
-DBM_KELTHUZAD_PHASE3_ANNOUNCE      = "*** 型態 3 - 15秒後 寒冰皇冠守衛者出現 ***";
+DBM_KELTHUZAD_PHASE3_ANNOUNCE      = "*** 型態 3 ***";
 
 DBM_KELTHUZAD_MC_EXPR1         = "Your soul is bound to me, now!";
 DBM_KELTHUZAD_MC_EXPR2         = "There will be no escape!";

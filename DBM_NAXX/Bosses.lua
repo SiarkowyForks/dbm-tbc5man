@@ -151,15 +151,3 @@ DBM.Bosses[DBM_NAXX]["THADDIUS"] = {
 		"Thaddius",
 	},
 };
-
-DBM.Bosses[DBM_NAXX]["KELTHUZAD"] = {
-	["startMethod"] = "YELL",
-	["name"] = DBM_KELTHUZAD_NAME,
-	["minCombatTime"] = 75,
-	["startTrigger"] = {
-		[DBM_KELTHUZAD_PHASE1_EXPR] = true,
-	},
-	["BossMods"] = {
-		"Kelthuzad",
-	},
-};

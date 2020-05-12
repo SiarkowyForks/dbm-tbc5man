@@ -237,7 +237,7 @@
 	DBM_KELTHUZAD_PHASE2_ANNOUNCE		= "*** Phase 2 - Kel'Thuzad kommt ***";
 	
 	DBM_KELTHUZAD_PHASE3_EXPR		= "Meister, helft mir!";
-	DBM_KELTHUZAD_PHASE3_ANNOUNCE		= "*** Phase 3 - Wächter in ~15 sec ***";
+	DBM_KELTHUZAD_PHASE3_ANNOUNCE		= "*** Phase 3 ***";
 
 	DBM_KELTHUZAD_MC_EXPR1			= "Eure Seele gehört jetzt mir!";
 	DBM_KELTHUZAD_MC_EXPR2			= "Es gibt kein Entkommen!";
