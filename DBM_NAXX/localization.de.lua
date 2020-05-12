@@ -212,8 +212,8 @@
 
 	DBM_SAPPHIRON_LIFEDRAIN_EXPR1		= "von Lebenssauger betroffen";
 	DBM_SAPPHIRON_LIFEDRAIN_EXPR2		= "Lebenssauger wurde von .+ widerstanden";
-	DBM_SAPPHIRON_LIFEDRAIN_ANNOUNCE	= "*** Lebenssauger - nächster in ~24 Sek ***";
-	DBM_SAPPHIRON_LIFEDRAIN_WARN		= "*** Lebenssauger in %d Sek ***";
+	DBM_SAPPHIRON_LIFEDRAIN_ANNOUNCE	= "*** Lebenssauger: >%s< ***";
+	DBM_SAPPHIRON_LIFEDRAIN_WARN		= "*** Lebenssauger bald ***";
 
 	DBM_SAPPHIRON_DEEPBREATH_EXPR		= "atmet tief ein...";
 	DBM_SAPPHIRON_DEEPBREATH_ANNOUNCE	= "*** Frostatem ***";

@@ -383,8 +383,8 @@ DBM_SAPPHIRON_YELL_ANNOUNCE		= "I'm an Ice Block, stay behind me!";
 
 DBM_SAPPHIRON_LIFEDRAIN_EXPR1		= "afflicted by Life Drain";
 DBM_SAPPHIRON_LIFEDRAIN_EXPR2		= "Life Drain was resisted by";
-DBM_SAPPHIRON_LIFEDRAIN_ANNOUNCE	= "*** Life Drain - next in ~24 sec ***";
-DBM_SAPPHIRON_LIFEDRAIN_WARN		= "*** Life Drain in %d sec ***";
+DBM_SAPPHIRON_LIFEDRAIN_ANNOUNCE	= "*** Life Drain: >%s< ***";
+DBM_SAPPHIRON_LIFEDRAIN_WARN		= "*** Life Drain soon ***";
 
 DBM_SAPPHIRON_DEEPBREATH_EXPR		= "takes in a deep breath...";
 DBM_SAPPHIRON_DEEPBREATH_ANNOUNCE	= "*** Ice Bomb Incoming ***";

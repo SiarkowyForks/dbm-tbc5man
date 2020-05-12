@@ -375,15 +375,30 @@ DBM_SBT["Inevitable Doom"]		= "Inevitable Doom";
 DBM_SAPPHIRON_NAME 			= "Sapphiron";
 DBM_SAPPHIRON_INFO			= "Warns for Ice Bomb, Life Drain and Enrage.";
 
-DBM_SAPPHIRON_YELL_INFO		= "Yell when afflicted by Ice Block";
-DBM_SAPPHIRON_PING_INFO		= "Show minimap pings";
-DBM_SAPPHIRON_SHOW_DISTANCE_FRAME	= "Show distance frame during air phase";
+DBM_SAPPHIRON_EMOTE_AIR		= "%s lifts off into the air!";
+DBM_SAPPHIRON_EMOTE_BREATH	= "%s takes in a deep breath...";
+DBM_SAPPHIRON_EMOTE_GROUND	= "%s resumes his attacks!";
+
+DBM_SAPPHIRON_PHASE_AIR		= "Air Phase";
+DBM_SAPPHIRON_PHASE_GROUND	= "Ground Phase";
+
+DBM_SAPPHIRON_YELL_INFO		= "Yell when afflicted by Icebolt";
+DBM_SAPPHIRON_PING_INFO		= "Show & emit minimap pings";
+DBM_SAPPHIRON_SHOW_DISTANCE_FRAME	= "Show distance frame";
+DBM_SAPPHIRON_OPTION_CHILL	= "Show special warning for Chill";
+DBM_SAPPHIRON_OPTION_ANN_LIFEDRAIN	= "Announce Life Drains";
+DBM_SAPPHIRON_OPTION_ANN_ICEBOLT	= "Announce Icebolts";
+DBM_SAPPHIRON_OPTION_ANN_WONTFLY	= "Announce No more Air Phase";
+
 DBM_SAPPHIRON_YELL_ANNOUNCE		= "I'm an Ice Block, stay behind me!";
+DBM_SAPPHIRON_ICEBOLT_ANNOUNCE	= "*** Icebolt: >%s< ***";
 
 DBM_SAPPHIRON_LIFEDRAIN_EXPR1		= "afflicted by Life Drain";
 DBM_SAPPHIRON_LIFEDRAIN_EXPR2		= "Life Drain was resisted by";
-DBM_SAPPHIRON_LIFEDRAIN_ANNOUNCE	= "*** Life Drain - next in ~24 sec ***";
-DBM_SAPPHIRON_LIFEDRAIN_WARN		= "*** Life Drain in %d sec ***";
+DBM_SAPPHIRON_LIFEDRAIN_ANNOUNCE	= "*** Life Drain: >%s< ***";
+DBM_SAPPHIRON_LIFEDRAIN_WARN		= "*** Life Drain soon ***";
+
+DBM_SAPPHIRON_CHILL_SELFWARN		= "You are Chilled!";
 
 DBM_SAPPHIRON_DEEPBREATH_EXPR		= "takes in a deep breath...";
 DBM_SAPPHIRON_DEEPBREATH_ANNOUNCE	= "*** Ice Bomb Incoming ***";
@@ -391,6 +406,7 @@ DBM_SAPPHIRON_DEEPBREATH_ANNOUNCE	= "*** Ice Bomb Incoming ***";
 DBM_SAPPHIRON_FROSTBOLT_GAIN_EXPR	= "You are afflicted by Icebolt";
 DBM_SAPPHIRON_FROSTBOLT_FADE_EXPR	= "Icebolt fades from you";
 
+DBM_SAPPHIRON_WONTFLY_ANNOUNCE		= "No more Air Phase";
 DBM_SAPPHIRON_ENRAGE_ANNOUNCE		= "*** Enrage in %d sec ***";
 
 

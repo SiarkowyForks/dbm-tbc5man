@@ -152,14 +152,6 @@ DBM.Bosses[DBM_NAXX]["THADDIUS"] = {
 	},
 };
 
-DBM.Bosses[DBM_NAXX]["SAPPHIRON"] = {
-	["startMethod"] = "COMBAT",
-	["name"] = DBM_SAPPHIRON_NAME,
-	["delay"] = 5,
-	["BossMods"] = {
-		"Sapphiron",
-	},
-};
 DBM.Bosses[DBM_NAXX]["KELTHUZAD"] = {
 	["startMethod"] = "YELL",
 	["name"] = DBM_KELTHUZAD_NAME,

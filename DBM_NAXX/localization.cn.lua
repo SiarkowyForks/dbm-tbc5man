@@ -437,8 +437,8 @@ if (GetLocale() == "zhCN") then
 	
 	DBM_SAPPHIRON_LIFEDRAIN_EXPR1		= "受到了生命吸取效果的影响。";
 	DBM_SAPPHIRON_LIFEDRAIN_EXPR2		= "生命吸取被([^%s]+)抵抗了。";
-	DBM_SAPPHIRON_LIFEDRAIN_ANNOUNCE	= "*** 生命吸取 - 24秒后再次施放 ***";
-	DBM_SAPPHIRON_LIFEDRAIN_WARN		= "*** 生命吸取 - %d秒后施放 ***";
+	DBM_SAPPHIRON_LIFEDRAIN_ANNOUNCE	= "*** 生命吸取: >%s< ***";
+	DBM_SAPPHIRON_LIFEDRAIN_WARN		= "*** 生命吸取 - 5秒后施放 ***";
 	
 	DBM_SAPPHIRON_DEEPBREATH_EXPR		= "深深地吸了一口气……";
 	DBM_SAPPHIRON_DEEPBREATH_ANNOUNCE	= "*** 寒冰炸弹即将到来 ***";

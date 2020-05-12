@@ -353,8 +353,8 @@ DBM_SAPPHIRON_YELL_ANNOUNCE        = "我變成寒冰屏障了, 站到我後面�
 
 DBM_SAPPHIRON_LIFEDRAIN_EXPR1      = "受到了吸取生命效果的影響。";
 DBM_SAPPHIRON_LIFEDRAIN_EXPR2      = "的吸取生命被.*抵抗了。";
-DBM_SAPPHIRON_LIFEDRAIN_ANNOUNCE   = "*** 吸取生命 - 下一次將在24秒後出現 ***";
-DBM_SAPPHIRON_LIFEDRAIN_WARN       = "*** 吸取生命在 %d 秒後到來 ***";
+DBM_SAPPHIRON_LIFEDRAIN_ANNOUNCE   = "*** 吸取生命: >%s< ***";
+DBM_SAPPHIRON_LIFEDRAIN_WARN       = "*** 吸取生命在 5 秒後到來 ***";
 
 DBM_SAPPHIRON_DEEPBREATH_EXPR      = "%s深深地吸了一口氣...";
 DBM_SAPPHIRON_DEEPBREATH_ANNOUNCE  = "*** 寒冰炸彈即將降臨，不想死的快閃開！ ***";
