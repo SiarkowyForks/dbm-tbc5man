@@ -7,6 +7,33 @@ Fork of Deadly Boss Mod v3.22 modified for compatibility with
 
 ## Changelog
 
+### v3.22.1092
+
+- Black Temple/Illidan Stormrage: Corrected Enrage timer (now 20 mins).
+- Sunwell/Kalecgos: Fixed combat recognition & boss health frame. Health syncing
+  is backwards incompatible (it is now %-based instead of absolute HP).
+  For best experience, all raid members need to upgrade.
+- Sunwell/Brutallus: Adjusted Burn timers (now 20 secs).
+- Sunwell/Felmyst: Fixed phase change/Deep Breath timers. Air phase timer
+  doesn't take into account the rare case of late Encapsulate + Gas Nova combo;
+  phase timers will correct on phase switch.
+- Naxxramas/Sapphiron: Rewrote stock mod for compatibility with TBC 5 Man.
+  - Added phase announcement incl. "No more Air Phase" warning at 10% HP.
+  - Ground Phase: Added Life Drain/soon announce. First one is random, however.
+  - Ground Phase: Added special warning for Chill, enabled by default.
+  - Air Phase: Combine Icebolt/Ice Bomb timers into a single "Stay Behind: target".
+  - Air Phase: Disabled Icebolt ping by default as its function is already
+    provided by Stay Behind timer + Icebolt announce.
+  - Color coded announcements to emphasize Life Drains/Icebolts.
+- Naxxramas/Kel'Thuzad: Rewrote stock mod for compatibility with TBC 5 Man.
+  - Added Enrage timer (12 mins).
+  - Modified phase tracking and added "Phase 2 soon" warning (10 seconds prior).
+  - Added timer & warnings for Sinister Reflection/Exploding Shadow.
+  - Added special warning & local timer for Shadow Fissure (enabled by default).
+  - Allowed whispering Shadow Fissure/Detonate Mana targets (requires announce).
+  - Removed icon marking for Detonate Mana target.
+  - Color coded announcements, emphasizing Fissures/Frost Blasts.
+
 ### v3.22.1083
 
 - TBC 5 Man/Buff Bots: Add despawn timer & announce.
