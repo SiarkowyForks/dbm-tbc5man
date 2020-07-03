@@ -326,7 +326,7 @@ DBM = {}
 DBM.Version = "3.22" -- used for "a new version of dbm is available"-spam
 DBMGUI_VERSION = "3.02"
 
-DBM_REVISION = 1092
+DBM_REVISION = 1094
 DBM_VERSION = "3.22" -- this version is used for /dbm ver commands
 DBM.BetaVersion = DBM_VERSION.." (rev "..DBM_REVISION..")" -- this will be shown in the GUI if set
 
@@ -3514,6 +3514,10 @@ function DBM.CombatEnd(bossName, noBroadcast, subBossName)
 end
 
 function DBM.CheckForCombatEnd()
+	if DBM.PersistEncounterUntil and DBM.PersistEncounterUntil > GetTime() then
+		return;
+	end
+
 	if not UnitAffectingCombat("player") and not UnitIsDead("player") then
 		DBM.CombatEnd();
 	end

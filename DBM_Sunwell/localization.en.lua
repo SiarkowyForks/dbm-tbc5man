@@ -229,3 +229,4 @@ DBM_KIL_FRAME_UPWARDS			= "Expand Fire Bloom target list upwards"
 DBM_KIL_FRAME_UPWARDS2			= DBM_KAL_FRAME_UPWARDS2
 DBM_KIL_FRAME_HIDE				= DBM_KAL_FRAME_HIDE
 
+DBM_KIL_SPELL_DRAGON_FORM		= "Vengeance of the Blue Flight"

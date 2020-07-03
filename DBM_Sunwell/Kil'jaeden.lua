@@ -1,6 +1,6 @@
 local Kil = DBM:NewBossMod("Kil", DBM_KIL_NAME, DBM_KIL_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 6)
 
-Kil.Version	= "0.94"
+Kil.Version	= "0.95"
 Kil.Author	= "Tandanu, Siarkowy"
 Kil.MinRevision = 1083
 
@@ -29,6 +29,8 @@ Kil:AddOption("WarnDragonOrb", true, DBM_KIL_OPTION_DRAGONORB)
 
 Kil:RegisterEvents(
 	"UNIT_DIED",
+	"UNIT_SPELLCAST_CHANNEL_START",
+	"UNIT_SPELLCAST_CHANNEL_STOP",
 	"SPELL_CAST_SUCCESS",
 	"CHAT_MSG_MONSTER_YELL",
 	"SPELL_CAST_START",
@@ -106,6 +108,13 @@ function Kil:OnEvent(event, args)
 				self:SendSync("Emerge")
 			end
 		end
+	-- work around losing combat in Dragon form
+	elseif event == "UNIT_SPELLCAST_CHANNEL_START" and args == "player" then
+		if UnitChannelInfo(args) == DBM_KIL_SPELL_DRAGON_FORM then
+			DBM.PersistEncounterUntil = GetTime() + 30 + 7
+		end
+	elseif event == "UNIT_SPELLCAST_CHANNEL_STOP" and args == "player" then
+		DBM.PersistEncounterUntil = GetTime() + 7
 	end
 end
 
