@@ -1,6 +1,6 @@
 local Muru = DBM:NewBossMod("Muru", DBM_MURU_NAME, DBM_MURU_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 5)
 
-Muru.Version	= "0.92"
+Muru.Version	= "0.93"
 Muru.Author		= "Tandanu, Siarkowy"
 Muru.MinRevision	= 1080
 
@@ -15,12 +15,14 @@ Muru:AddOption("WarnDarknessSoon", true, DBM_MURU_OPTION_DARKNESS_SOON)
 Muru:AddOption("WarnBlackHole", true, DBM_MURU_OPTION_HOLE_WARN)
 Muru:AddOption("PreWarnBlackHole", true, DBM_MURU_OPTION_HOLE_SOON_WARN)
 Muru:AddOption("WarnFiend", true, DBM_MURU_OPTION_WARN_FIEND)
+Muru:AddOption("WarnFiendSoon", true, DBM_MURU_OPTION_WARN_FIEND_SOON)
 Muru:AddOption("WarnVoidZone", true, DBM_MURU_OPTION_VOID_ZONE_WARN)
 
 Muru:AddBarOption("Enrage")
 Muru:AddBarOption("Humanoids")
 Muru:AddBarOption("Void Sentinel")
 Muru:AddBarOption("Next Darkness")
+Muru:AddBarOption("Dark Fiend")
 Muru:AddBarOption("Next Black Hole")
 
 local p2 = false
@@ -89,8 +91,12 @@ function Muru:OnSync(msg)
 			self:ScheduleAnnounce(40, DBM_MURU_DARKNESS_SOON, 3)
 		end
 	elseif msg == "Fiend" then
+		if self.Options.WarnFiendSoon then
+			self:Announce(DBM_MURU_WARN_FIEND_SOON, 3)
+		end
+		self:StartStatusBarTimer(5, "Dark Fiend", "Interface\\Icons\\Spell_Holy_SenseUndead")
 		if self.Options.WarnFiend then
-			self:Announce(DBM_MURU_WARN_FIEND, 3)
+			self:ScheduleAnnounce(5, DBM_MURU_WARN_FIEND, 4)
 		end
 	elseif msg == "BlackHole" then
 		if self.Options.WarnBlackHole then
