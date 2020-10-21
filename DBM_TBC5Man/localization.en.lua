@@ -27,3 +27,46 @@ DBM_YSONDRE_EMOTE_ELKS = "%s summons two weakened Elk, sooth them with heals bef
 
 DBM_YSONDRE_WARN_MUSHROOM_SOON = "Towering Mushroom soon"
 DBM_YSONDRE_WARN_ELKS_SOON = "Weakened Elks soon"
+
+-- Onyxia
+DBM_ZONE_ONYXIAS_LAIR = "Onyxia's Lair"
+
+DBM_ONYXIA_NAME = "Onyxia"
+DBM_ONYXIA_T65_NAME = "Onyxia Tier 6.5"
+DBM_ONYXIA_DESCRIPTION = "Shows timers for Onyxia and her adds."
+
+DBM_ONYXIA_OPTION_WARN_WHELP_HATCHED = "Tunnel Whelps: Announce egg hatch"
+DBM_ONYXIA_OPTION_WARN_WHELP_ENGAGED = "Onyxia Whelps: Announce engage"
+DBM_ONYXIA_OPTION_WARN_NOVA_SOON = "Fire Nova: Show warning before"
+DBM_ONYXIA_OPTION_WARN_CONFLAG = "Conflagration: Announce"
+DBM_ONYXIA_OPTION_WARN_ROF = "Rain of Fire: Announce"
+DBM_ONYXIA_OPTION_WHISPER_ROF = "Rain of Fire: Whisper targets"
+DBM_ONYXIA_OPTION_SPECWARN_ROF = "Rain of Fire: Show special warning"
+DBM_ONYXIA_OPTION_WARN_EGGS = "Onyxia Eggs: Show warning before"
+DBM_ONYXIA_OPTION_WARN_FEAR = "Bellowing Roar: Show warning before"
+
+DBM_ONYXIA_YELL_PULL = "How fortuitous. Usually, I must leave my lair to feed."
+DBM_ONYXIA_YELL_TAKEOFF = "This meaningless exertion bores me. I'll incinerate you all from above!"
+DBM_ONYXIA_YELL_LESSON = "It seems you'll need another lesson, mortals!"
+DBM_ONYXIA_WARN_TELEPORT_SOON = "Prepare for Teleport"
+DBM_ONYXIA_WARN_WHELP_HATCHED = "Whelp Hatched: >%s<"
+DBM_ONYXIA_EMOTE_EGGS = "%s lays two eggs, kill them before they hatch..."
+
+DBM_ONYXIA_WHELP_NAME = "Onyxia Whelp"
+DBM_ONYXIA_WARN_WHELPS = "More Whelps"
+
+DBM_RAZORGORE_NAME = "Razorgore the Untamed"
+DBM_RAZORGORE_EMOTE_NOVA = "%s begins casting Fire Nova. Run away!"
+DBM_RAZORGORE_WARN_NOVA_SOON = "Fire Nova soon"
+DBM_RAZORGORE_WARN_CONFLAG = "Conflagration: >%s<"
+
+DBM_BROODLORD_NAME = "Broodlord Lashlayer"
+DBM_BROODLORD_PULL = "None of your kind should be here! You've doomed only yourselves!"
+DBM_ONYXIA_WARN_ROF = "Rain of Fire: >%s<"
+DBM_ONYXIA_SPECIAL_ROF = "Rain of Fire on you!"
+
+DBM_ONYXIA_GUARDIAN_NAME = "Onyxia Guardian"
+DBM_ONYXIA_GUARDIAN_PULL = DBM_BROODLORD_PULL
+DBM_ONYXIA_WARN_EGGS_SOON = "Onyxia Eggs soon"
+DBM_ONYXIA_WARN_FEAR_SOON = "Bellowing Roar soon"
+

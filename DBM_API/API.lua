@@ -326,7 +326,7 @@ DBM = {}
 DBM.Version = "3.22" -- used for "a new version of dbm is available"-spam
 DBMGUI_VERSION = "3.02"
 
-DBM_REVISION = 1097
+DBM_REVISION = 1099
 DBM_VERSION = "3.22" -- this version is used for /dbm ver commands
 DBM.BetaVersion = DBM_VERSION.." (rev "..DBM_REVISION..")" -- this will be shown in the GUI if set
 
