@@ -14,5 +14,8 @@
 ## X-DBM-Tab-LoadRealm: TBC 5 Man
 
 localization.en.lua
+
 WorldBuff.lua
 BuffBot.lua
+
+Ysondre.lua
