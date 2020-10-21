@@ -1,6 +1,6 @@
 local Kil = DBM:NewBossMod("Kil", DBM_KIL_NAME, DBM_KIL_DESCRIPTION, DBM_SUNWELL, DBM_SW_TAB, 6)
 
-Kil.Version	= "0.95"
+Kil.Version	= "0.96"
 Kil.Author	= "Tandanu, Siarkowy"
 Kil.MinRevision = 1083
 
@@ -177,17 +177,17 @@ function Kil:OnSync(msg)
 			self:Announce(DBM_KIL_WARN_PHASE4, 3)
 			self:EndStatusBarTimer("Next Darkness")
 			self:UnScheduleAnnounce(DBM_KIL_WARN_DARKNESS_SOON, 3)
-			self:ScheduleMethod(30, "StartStatusBarTimer", 25, "Next Darkness", 46605)
+			self:ScheduleMethod(30, "StartStatusBarTimer", 30, "Next Darkness", 46605)
 			self:ScheduleAnnounce(30+15, DBM_KIL_WARN_DARKNESS_SOON, 3)
 		end
 	elseif msg == "Darkness" then
 		self:Announce(DBM_KIL_WARN_DARKNESS, 4)
 		if phase == 5 then
-			self:StartStatusBarTimer(25, "Next Darkness", 46605)
-			self:ScheduleAnnounce(20, DBM_KIL_WARN_DARKNESS_SOON, 3)
-		else
 			self:StartStatusBarTimer(45, "Next Darkness", 46605)
 			self:ScheduleAnnounce(30, DBM_KIL_WARN_DARKNESS_SOON, 3)
+		else
+			self:StartStatusBarTimer(50, "Next Darkness", 46605)
+			self:ScheduleAnnounce(35, DBM_KIL_WARN_DARKNESS_SOON, 3)
 		end
 		self:StartStatusBarTimer(8.5, "Darkness", 46605)
 		self:ScheduleAnnounce(8.5, DBM_KIL_WARN_DARKNESS_NOW, 4)
