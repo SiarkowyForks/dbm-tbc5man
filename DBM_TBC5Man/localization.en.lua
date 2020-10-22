@@ -50,10 +50,11 @@ DBM_ONYXIA_YELL_TAKEOFF = "This meaningless exertion bores me. I'll incinerate y
 DBM_ONYXIA_YELL_LESSON = "It seems you'll need another lesson, mortals!"
 DBM_ONYXIA_WARN_TELEPORT_SOON = "Prepare for Teleport"
 DBM_ONYXIA_WARN_WHELP_HATCHED = "Whelp Hatched: >%s<"
+DBM_ONYXIA_WARN_MINUS = "50 DKP Minus: >%s<"
 DBM_ONYXIA_EMOTE_EGGS = "%s lays two eggs, kill them before they hatch..."
 
 DBM_ONYXIA_WHELP_NAME = "Onyxia Whelp"
-DBM_ONYXIA_WARN_WHELPS = "More Whelps"
+DBM_ONYXIA_WARN_WHELPS = "Many Whelps!"
 
 DBM_RAZORGORE_NAME = "Razorgore the Untamed"
 DBM_RAZORGORE_EMOTE_NOVA = "%s begins casting Fire Nova. Run away!"

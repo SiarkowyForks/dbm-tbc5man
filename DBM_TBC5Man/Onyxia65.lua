@@ -4,6 +4,8 @@ Onyxia.Version = "1.0"
 Onyxia.Author = "Siarkowy"
 Onyxia.MinRevision = 1099
 
+local random = math.random
+
 --------------------------------------------------------------------------------
 
 Onyxia:AddOption("WarnHatch", true, DBM_ONYXIA_OPTION_WARN_WHELP_HATCHED)
@@ -141,7 +143,8 @@ function Onyxia:OnSync(msg)
 	elseif msg:sub(1,5) == "Hatch" then
 		msg = msg:sub(6)
 		if self.Options.WarnHatch then
-			self:Announce(DBM_ONYXIA_WARN_WHELP_HATCHED:format(msg))
+			local F = random(50) >= 50
+			self:Announce((F and DBM_ONYXIA_WARN_MINUS or DBM_ONYXIA_WARN_WHELP_HATCHED):format(msg))
 		end
 
 	elseif msg == "Whelps" then
@@ -216,6 +219,8 @@ function Onyxia:OnSync(msg)
 	-- Onyxia Final Phase
 
 	elseif msg == "Finale" then
+		self:EndStatusBarTimer("Next Rain of Fire")
+		self:EndStatusBarTimer("Next Blast Wave")
 		self:StartStatusBarTimer(25, "Next Eggs", [[Interface\Icons\INV_Egg_01]])
 		if self.Options.WarnEggs then
 			self:ScheduleAnnounce(22, DBM_ONYXIA_WARN_EGGS_SOON)
