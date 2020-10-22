@@ -74,23 +74,8 @@ Fork of Deadly Boss Mod v3.22 modified for compatibility with
 
 ## Bug Reports
 
-Feel free to file any bug reports in the
+Feel free to post any bugs, requests and ideas in the
 [Issues](https://github.com/Siarkowy/DBM-5man/issues) section.
-Examples of possible defects include:
-
-- Encounter not starting at all
-- Timers of incorrect duration
-- Timers firing at wrong moments or not at all
-- Health/status frames bugs
-
-Make sure you include the following info in your bug report:
-
-- Brief title
-- Actual behaviour - How is DBM broken?
-- Expected behaviour - How should DBM work? - with detailed timer values etc.
-
-If you successfully tested the changes on live server, please also comment
-in the respective issue to let others know. Thank you!
 
 ## Contributing Code
 
