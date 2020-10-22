@@ -2,7 +2,25 @@
 
 ## CHANGELOG
 
-### v3.22.1092
+### v3.22.1100 "Many Whelps!" (2020-10-23)
+
+- Sunwell/Entropius: Added a timer for Dark Fiend dispels.
+- Sunwell/Kil'jaeden: Fixed losing timers in Dragon form due to combat reset.
+- Sunwell/Kil'jaeden: Fixed Darkness timers to be in line with live server.
+  Timers now properly account for Kil'jaeden channeling Darkness, and a warning
+  is shown 15 secs before Darkness begins. Final phase timers were reworked too.
+  The timer might be slightly rushing if the boss is still casting Soul Flay etc.
+- TBC 5 Man/Emerald Dream Ysondre: Implemented tracking of Mushrooms & Elks.
+- TBC 5 Man/Onyxia Tier 6.5: Implemented tracking for most parts of the fight.
+    - Tunnel: Announce teleports, egg hatching, and hitting the flame walls.
+    - Razorgore the Untamed: Track Fire Nova & Conflagration.
+    - Broodlord Lashlayer: Track Rain of Fire & Blast Wave.
+    - Phase 3: Track Eggs & Bellowing Roar. Use your aggro reducing abilities!
+    - Huge thanks to Perle & co. of Hex for provided sniffs and Raiders of oof
+      for field testing during wipe nights, followed by a fresh evening one shot!
+- Misc: Introduced a [THANKS](THANKS.md) file to credit all people who influenced the project.
+
+### v3.22.1092 "Kel'Thuzad" (2020-06-19)
 
 - Black Temple/Illidan Stormrage: Corrected Enrage timer (now 20 mins).
 - Sunwell/Kalecgos: Fixed combat recognition & boss health frame. Health syncing
@@ -29,7 +47,7 @@
   - Removed icon marking for Detonate Mana target.
   - Color coded announcements, emphasizing Fissures/Frost Blasts.
 
-### v3.22.1083
+### v3.22.1083 "Kil'jaeden" (2020-04-26)
 
 - TBC 5 Man/Buff Bots: Add despawn timer & announce.
 - TBC 5 Man/World Buff: Add trigger timer & announce.
@@ -47,7 +65,7 @@
 - Misc: Mod versioning changed to v(MAJOR).(MINOR).(REVISION). This is in
   order to stay in line with what DBM version check (/dbm version) reports.
 
-### v3.22.1080
+### v3.22.1080 "M'uru" (2019-11-26)
 
 - Magtheridon's Lair: Fixed encounter not starting.
 - Black Temple/Supremus: Fixed phase tracking & focused gaze timers.
