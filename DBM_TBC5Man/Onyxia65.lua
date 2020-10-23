@@ -9,6 +9,7 @@ local random = math.random
 --------------------------------------------------------------------------------
 
 Onyxia:AddOption("WarnHatch", true, DBM_ONYXIA_OPTION_WARN_WHELP_HATCHED)
+Onyxia:AddOption("WarnWall", true, DBM_ONYXIA_OPTION_WARN_FLAME_WAVE)
 Onyxia:AddOption("WarnWhelp", true, DBM_ONYXIA_OPTION_WARN_WHELP_ENGAGED)
 
 Onyxia:AddOption("WarnNova", true, DBM_ONYXIA_OPTION_WARN_NOVA_SOON)
@@ -41,6 +42,7 @@ Onyxia:RegisterEvents(
 	"SPELL_AURA_REMOVED",
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
+	"SPELL_DAMAGE",
 	"SPELL_SUMMON",
 	"SWING_DAMAGE",
 	"SWING_MISSED",
@@ -106,6 +108,11 @@ function Onyxia:OnEvent(event, arg1)
 			self:SendSync("Blast")
 		end
 
+	elseif event == "SPELL_DAMAGE" then
+		if arg1.spellId == 29644 then
+			self:SendSync("Wall"..arg1.destName)
+		end
+
 	elseif event == "SPELL_SUMMON" then
 		if arg1.spellId == 17646 then
 			self:SendSync("Hatch"..arg1.sourceName)
@@ -145,6 +152,12 @@ function Onyxia:OnSync(msg)
 		if self.Options.WarnHatch then
 			local F = random(50) >= 50
 			self:Announce((F and DBM_ONYXIA_WARN_MINUS or DBM_ONYXIA_WARN_WHELP_HATCHED):format(msg))
+		end
+
+	elseif msg:sub(1,4) == "Wall" then
+		msg = msg:sub(5)
+		if self.Options.WarnWall then
+			self:Announce(DBM_ONYXIA_WARN_FLAME_WAVE:format(msg), 4)
 		end
 
 	elseif msg == "Whelps" then

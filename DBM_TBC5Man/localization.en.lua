@@ -36,6 +36,7 @@ DBM_ONYXIA_T65_NAME = "Onyxia Tier 6.5"
 DBM_ONYXIA_DESCRIPTION = "Shows timers for Onyxia and her adds."
 
 DBM_ONYXIA_OPTION_WARN_WHELP_HATCHED = "Tunnel Whelps: Announce egg hatch"
+DBM_ONYXIA_OPTION_WARN_FLAME_WAVE = "Flame Wave: Announce"
 DBM_ONYXIA_OPTION_WARN_WHELP_ENGAGED = "Onyxia Whelps: Announce engage"
 DBM_ONYXIA_OPTION_WARN_NOVA_SOON = "Fire Nova: Show warning before"
 DBM_ONYXIA_OPTION_WARN_CONFLAG = "Conflagration: Announce"
@@ -50,6 +51,7 @@ DBM_ONYXIA_YELL_TAKEOFF = "This meaningless exertion bores me. I'll incinerate y
 DBM_ONYXIA_YELL_LESSON = "It seems you'll need another lesson, mortals!"
 DBM_ONYXIA_WARN_TELEPORT_SOON = "Prepare for Teleport"
 DBM_ONYXIA_WARN_WHELP_HATCHED = "Whelp Hatched: >%s<"
+DBM_ONYXIA_WARN_FLAME_WAVE = "Flame Wave: >%s<"
 DBM_ONYXIA_WARN_MINUS = "50 DKP Minus: >%s<"
 DBM_ONYXIA_EMOTE_EGGS = "%s lays two eggs, kill them before they hatch..."
 
