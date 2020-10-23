@@ -136,7 +136,7 @@ function Onyxia:OnEvent(event, arg1)
 
 	elseif event == "WarnNova" then
 		if self.Options.WarnNova then
-			self:Announce(DBM_RAZORGORE_WARN_NOVA_SOON)
+			self:Announce(DBM_RAZORGORE_WARN_NOVA_SOON, 2)
 		end
 	end
 end
@@ -151,7 +151,7 @@ function Onyxia:OnSync(msg)
 		msg = msg:sub(6)
 		if self.Options.WarnHatch then
 			local F = random(50) >= 50
-			self:Announce((F and DBM_ONYXIA_WARN_MINUS or DBM_ONYXIA_WARN_WHELP_HATCHED):format(msg))
+			self:Announce((F and DBM_ONYXIA_WARN_MINUS or DBM_ONYXIA_WARN_WHELP_HATCHED):format(msg), 3)
 		end
 
 	elseif msg:sub(1,4) == "Wall" then
@@ -191,7 +191,7 @@ function Onyxia:OnSync(msg)
 	elseif msg:sub(1,7) == "Conflag" then
 		msg = msg:sub(8)
 		if self.Options.WarnConflag then
-			self:Announce(DBM_RAZORGORE_WARN_CONFLAG:format(msg))
+			self:Announce(DBM_RAZORGORE_WARN_CONFLAG:format(msg), 3)
 		end
 
 	-- Broodlord Lashlayer
@@ -208,7 +208,7 @@ function Onyxia:OnSync(msg)
 			self.LastRof = now
 			self:StartStatusBarTimer(16, "Next Rain of Fire", [[Interface\Icons\Spell_Shadow_RainOfFire]])
 			if self.Options.WarnRof then
-				self:Announce(DBM_ONYXIA_WARN_ROF:format(msg))
+				self:Announce(DBM_ONYXIA_WARN_ROF:format(msg), 4)
 			end
 		end
 		if msg == UnitName("player") then
@@ -236,7 +236,7 @@ function Onyxia:OnSync(msg)
 		self:EndStatusBarTimer("Next Blast Wave")
 		self:StartStatusBarTimer(25, "Next Eggs", [[Interface\Icons\INV_Egg_01]])
 		if self.Options.WarnEggs then
-			self:ScheduleAnnounce(22, DBM_ONYXIA_WARN_EGGS_SOON)
+			self:ScheduleAnnounce(22, DBM_ONYXIA_WARN_EGGS_SOON, 2)
 		end
 		self:StartStatusBarTimer(17, "Bellowing Roar CD", [[Interface\Icons\Spell_Shadow_DeathScream]])
 		if self.Options.WarnFear then
@@ -246,7 +246,7 @@ function Onyxia:OnSync(msg)
 	elseif msg == "Eggs" then
 		self:StartStatusBarTimer(30, "Next Eggs", [[Interface\Icons\INV_Egg_01]])
 		if self.Options.WarnEggs then
-			self:ScheduleAnnounce(28, DBM_ONYXIA_WARN_EGGS_SOON)
+			self:ScheduleAnnounce(28, DBM_ONYXIA_WARN_EGGS_SOON, 2)
 		end
 
 	elseif msg == "Fear" then
