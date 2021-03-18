@@ -73,3 +73,14 @@ DBM_ONYXIA_GUARDIAN_PULL = DBM_BROODLORD_PULL
 DBM_ONYXIA_WARN_EGGS_SOON = "Onyxia Eggs soon"
 DBM_ONYXIA_WARN_FEAR_SOON = "Bellowing Roar soon"
 
+-- AQ  Cthun
+DBM_CTHUN_T65_NAME = "C'Thun"
+DBM_AQ40_DESCRIPTION = "Shows timers for C'Thun fight"
+DBM_ZONE_AQ40 = "Ahn'Qiraj"
+
+-- AQ Fankriss
+DBM_CTHUN_T65_FANKRISS_NAME = "Fankriss the Unyielding HC"
+DBM_CTHUN_OPTION_WARN_FANKRISS_BREATH = "Fankriss Breath Incoming"
+
+-- AQ Princess
+DBM_CTHUN_T65_PRINCESS_NAME = "Princess Huhuran HC"
