@@ -74,7 +74,8 @@ end
 local function cThunPhaseEnd(self)
 	-- clear all cthun timers
 	DBM_Gui_DistanceFrame_Hide();
-	-- self:EndStatusBarTimer("Next Fire Nova")
+	self:EndStatusBarTimer("Tentacles")
+	self:EndStatusBarTimer("Dark Glare")
 	-- self:UnScheduleEvent("WarnNova")
 	--reset distance frame to default of 10, copied from gruuls.lua
 	DBM_Gui_DistanceFrame_SetDistance(10);
@@ -178,8 +179,12 @@ function tbcCthun:OnSync(msg)
 		self.CThunActive = 1
 		cThunPhaseStart(self)
 
+		self:EndStatusBarTimer("Breath")
+		self:EndStatusBarTimer("Sand Trap")
+
 		--deleteme, testing only
 		self:Announce("Fankriss Down")
+
 
 	elseif msg == "WarnFankrissBreath" then 
 		self:Announce(DBM_CTHUN_OPTION_WARN_FANKRISS_BREATH)
@@ -213,6 +218,11 @@ function tbcCthun:OnSync(msg)
 		self.CThunPhase = 3
 		self.CThunActive = 1
 		cThunPhaseStart(self)
+
+		self:EndStatusBarTimer("Poison Rain")
+		self:EndStatusBarTimer("Summon Guards")
+		self:EndStatusBarTimer("Spawn Shield Bugs")
+
 
 		--deleteme, testing only
 		self:Announce("Princess Down")
