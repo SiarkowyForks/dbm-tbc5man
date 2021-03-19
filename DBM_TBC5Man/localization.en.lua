@@ -84,3 +84,6 @@ DBM_CTHUN_OPTION_WARN_FANKRISS_BREATH = "Fankriss Breath Incoming"
 
 -- AQ Princess
 DBM_CTHUN_T65_PRINCESS_NAME = "Princess Huhuran HC"
+
+-- AQ Stomach
+DBM_CTHUN_T65_STOMACH_NAME = "TODO"
