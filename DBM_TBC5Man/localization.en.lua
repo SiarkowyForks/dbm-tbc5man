@@ -79,8 +79,11 @@ DBM_AQ40_DESCRIPTION = "Shows timers for C'Thun fight"
 DBM_ZONE_AQ40 = "Ahn'Qiraj"
 
 -- AQ Fankriss
-DBM_CTHUN_T65_FANKRISS_NAME = "Fankriss the Unyielding HC"
+DBM_CTHUN_T65_FANKRISS_NAME = "Fankriss the Unyielding"
 DBM_CTHUN_OPTION_WARN_FANKRISS_BREATH = "Fankriss Breath Incoming"
 
 -- AQ Princess
-DBM_CTHUN_T65_PRINCESS_NAME = "Princess Huhuran HC"
+DBM_CTHUN_T65_PRINCESS_NAME = "Princess Huhuran"
+
+-- AQ Stomach
+DBM_CTHUN_T65_STOMACH_NAME = "Flesh Tentacle"
