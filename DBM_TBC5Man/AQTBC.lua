@@ -226,15 +226,16 @@ function tbcCthun:OnSync(msg)
 		player = msg:sub(20)
 		--TODO make this not a rw, maybe raid only
 		self:Announce(player.." was hit by sand trap!")
+		self:StartStatusBarTimer(15, "Sand Trap debuff on "..player, "Interface\\Icons\\inv_misc_dust_02")
 	elseif msg:sub(1,12) == "FankrissTrap" then
 		player = msg:sub(13)
 
 		--TODO delete icon set once more people have mod
-		self:SetIcon(player, 20);
+		--self:SetIcon(player, 20);
 		
 		--self:StartStatusBarTimer(25, "Sand Trap", "Interface\\Icons\\spell_nature_earthshock")
 		self:SendHiddenWhisper("Sand Trap on you!", player)
-		self:StartStatusBarTimer(10, "Sand Trap on "..player, "Interface\\Icons\\spell_nature_nullifydisease")
+		
 		if UnitName("player") == player then
 			PlaySoundFile("Sound\\Spells\\PVPFlagTaken.wav"); 
 			SendChatMessage("Sand Trap on me!", "SAY")
@@ -251,8 +252,8 @@ function tbcCthun:OnSync(msg)
 		--self:Announce("Princess Started")
 		cThunPhaseEnd(self)
 
-		self:StartStatusBarTimer(60, "Next Poison Barrage", "Interface\\Icons\\spell_shadow_teleport")
-		self:StartStatusBarTimer(7, "Shield Bugs Spawning", "Interface\\Icons\\inv_shield_05")
+		self:StartStatusBarTimer(30, "Next Poison Barrage", "Interface\\Icons\\spell_shadow_teleport")
+		self:StartStatusBarTimer(5, "Shield Bugs Spawning", "Interface\\Icons\\inv_shield_05")
 
 	elseif msg == "PrincessDown" then
 		-- princess killed, start cthun
@@ -297,7 +298,7 @@ function tbcCthun:OnSync(msg)
 		--clear timers from poison, set timer for next reflection and shield bugs
 		self:EndStatusBarTimer("Poison Barrage")
 		self:StartStatusBarTimer(60, "Next Poison Barrage", "Interface\\Icons\\spell_shadow_teleport")
-		self:StartStatusBarTimer(7, "Shield Bugs Spawning", "Interface\\Icons\\inv_shield_05")
+		self:StartStatusBarTimer(5, "Shield Bugs Spawning", "Interface\\Icons\\inv_shield_05")
 
 	--
 	-- TODO Stomach
