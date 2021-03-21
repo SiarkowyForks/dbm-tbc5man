@@ -75,7 +75,7 @@ DBM_ONYXIA_WARN_FEAR_SOON = "Bellowing Roar soon"
 
 -- AQ  Cthun
 DBM_CTHUN_T65_NAME = "C'Thun"
-DBM_AQ40_DESCRIPTION = "Shows timers for C'Thun fight"
+DBM_AQ40_DESCRIPTION = "Shows timers for C'Thun fight v1.01"
 DBM_ZONE_AQ40 = "Ahn'Qiraj"
 
 -- AQ Fankriss

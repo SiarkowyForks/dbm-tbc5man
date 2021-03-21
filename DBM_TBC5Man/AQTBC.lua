@@ -194,8 +194,6 @@ function tbcCthun:OnEvent(event, arg1, arg2, arg3, arg4, arg5)
 	elseif event == "SPELL_CAST_START" then
 		if arg1.spellId == 26134 then
 			--self:SendSync("EyeBeamLoop") --disabled, need to wait for yatzi to implement yells
-		elseif arg1.spellId == 27137 then -- TESTING ONLY
-			self:SendSync("Princess")
 		end
 	elseif event == "SPELL_DAMAGE" then
 		if arg1.spellId == 26102 then
@@ -308,7 +306,6 @@ function tbcCthun:OnSync(msg)
 	-- Princess
 	--
 	elseif msg == "Princess" then
-		SendChatMessage("Dropped poison", "SAY") --DELETEME
 		-- princess started, clear cthun
 		self.Princess = 1
 		self.CThunActive = 0
@@ -326,7 +323,6 @@ function tbcCthun:OnSync(msg)
 			for i = 1,10,1
 			do
 				start_event_time = guards_delay + (next_guard_delay * i) - 10 -- subtract 10 to start timers when last set despawns
-				SendChatMessage(start_event_time, "SAY") --DELETEME
 				self:ScheduleEvent(start_event_time, "WarnPrincessGuards")
 			end 
 		end
