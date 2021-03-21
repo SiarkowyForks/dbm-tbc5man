@@ -207,7 +207,7 @@ function tbcCthun:OnEvent(event, arg1, arg2, arg3, arg4, arg5)
 			--self:SendSync("EyeBeamLoop") --disabled, need to wait for yatzi to implement yells
 		--elseif arg1.spellId == 27137 then --testing only, can use flash of light to trigger events
 		--	self:SendSync("Princess")
-		--end
+		end
 	elseif event == "SPELL_DAMAGE" then
 		if arg1.spellId == 26102 then
 			player = arg1.destName
