@@ -115,6 +115,17 @@ function tbcCthun:cThunPhaseEnd()
 	DBM_Gui_DistanceFrame_SetDistance(10);
 end
 
+function tbcCthun:PrincessGuardsLoop()
+	if self.Princess then
+		-- custom event loop for princess guard spawns
+		self:ScheduleEvent(0, "WarnPrincessGuards")
+		self:ScheduleEvent(10, "WarnPrincessGuardsDespawn")
+
+		--loop on itself in 40sec
+		self:ScheduleMethod(40, "PrincessGuardsLoop")
+	end
+end
+
 --TODO should be set to be based off a yell, if one existed
 function tbcCthun:OnCombatStart(delay)
 	-- 0 if miniboss hasnt been encountered, 1 if active, 2 if dead
@@ -194,7 +205,9 @@ function tbcCthun:OnEvent(event, arg1, arg2, arg3, arg4, arg5)
 	elseif event == "SPELL_CAST_START" then
 		if arg1.spellId == 26134 then
 			--self:SendSync("EyeBeamLoop") --disabled, need to wait for yatzi to implement yells
-		end
+		--elseif arg1.spellId == 27137 then --testing only, can use flash of light to trigger events
+		--	self:SendSync("Princess")
+		--end
 	elseif event == "SPELL_DAMAGE" then
 		if arg1.spellId == 26102 then
 			player = arg1.destName
@@ -225,18 +238,12 @@ function tbcCthun:OnEvent(event, arg1, arg2, arg3, arg4, arg5)
 			self:SendSync("Stomach")
 		end
 
-	-- custom event loop for princess guard spawns
-	elseif(self.Princess == 1) then 
-		if event == "WarnPrincessGuards" then
-			self:StartStatusBarTimer(10, "Summon Guards", "Interface\\Icons\\spell_shadow_teleport")
-			self:ScheduleEvent(10, "WarnPrincessGuardsDespawn")
-		elseif event == "WarnPrincessGuardsDespawn" then
-			self:StartStatusBarTimer(30, "Guards Despawn", "Interface\\Icons\\spell_shadow_possession")
-		end
+	-- handle custom event for princess guards
+	elseif event == "WarnPrincessGuards" then
+		self:SendSync("WarnPrincessGuards")
+	elseif event == "WarnPrincessGuardsDespawn" then
+		self:SendSync("WarnPrincessWarnGuardsDespawn")
 	end
-
-
-
 end
 
 function tbcCthun:OnSync(msg)
@@ -317,14 +324,7 @@ function tbcCthun:OnSync(msg)
 		end
 
 		if self.Options.WarnPrincessGuardTimers then
-			--schedule warning events for future guards
-			guards_delay = 2 --adjusts all timers by this amount
-			next_guard_delay = 40 --time between guards
-			for i = 1,10,1
-			do
-				start_event_time = guards_delay + (next_guard_delay * i) - 10 -- subtract 10 to start timers when last set despawns
-				self:ScheduleEvent(start_event_time, "WarnPrincessGuards")
-			end 
+			self:ScheduleMethod(30, "PrincessGuardsLoop")
 		end
 	elseif msg == "PrincessDown" then
 		-- princess killed, start cthun
@@ -393,6 +393,14 @@ function tbcCthun:OnSync(msg)
 		if self.Options.WarnPrincessBerserk then
 			self:Announce("Princess Huhuran goes Berserk")
 		end
+
+	elseif msg == "WarnPrincessGuards" and self.Princess == 1 then
+		self:ScheduleAnnounce(5, "Guards soon", 1);
+		self:StartStatusBarTimer(10, "Summon Guards", "Interface\\Icons\\spell_shadow_teleport")
+	elseif msg == "WarnPrincessWarnGuardsDespawn" and self.Princess == 1  then
+		self:StartStatusBarTimer(30, "Guards Despawn", "Interface\\Icons\\spell_shadow_possession")
+	
+
 	--
 	-- Stomach
 	--
