@@ -101,7 +101,7 @@ function tbcCthun:cThunPhaseStart()
 	if self.CThunPhase >= 4 then
 		-- stomach killed
 		-- unknown
-		percent = "he dies"
+		percent = "10%"
 	end
 
 
@@ -210,6 +210,8 @@ function tbcCthun:OnEvent(event, arg1, arg2, arg3, arg4, arg5)
 			self:SendSync("PrincessBerserkStart")
 		elseif arg1.spellId == 20367 then
 			self:SendSync("CThunWarnPhaseEnding")
+		elseif arg1.spellId == 26232 then
+			self:SendSync("CthunDying")
 		end
 	elseif event == "SPELL_AURA_REFRESH" then
 		if arg1.spellId == 28431 then
@@ -469,6 +471,10 @@ function tbcCthun:OnSync(msg)
 	--
 	-- C'Thun
 	--
+	elseif msg == "CthunDying" then
+		self:Announce("C'Thun is nearly dead, no more eye beams or dark glares")
+		self:EndStatusBarTimer("Dark Glare")
+
 	elseif msg == "CThunWarnPhaseEnding" then
 		self:Announce("C'Thun phase ending")
 	elseif msg == "EyeBeamLoop" then
